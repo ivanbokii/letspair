@@ -1,0 +1,18 @@
+@import "common";
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  .main-menu {
+    @include font-trebuchet(13px);
+    @include ul-no-style;
+    @include inline-li;
+
+    float: right;
+  }
+
+  overflow: hidden;
+}

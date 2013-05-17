@@ -1,0 +1,126 @@
+//---common mixins----
+@mixin font-trebuchet($size) {
+  font-family: "Trebuchet MS";
+  font-size: $size;
+}
+
+@mixin ul-no-style {
+  list-style-type: none;  
+}
+
+@mixin inline-li {
+  li {
+    display: inline;
+    padding-left: 10px;
+  }
+}
+//---common variables---
+$avatar-side-size: 80px;
+$avatar-radius: 40px;
+
+$background-color: #dadbdd;
+$menu-font-color: #444444;
+$light-blue: #1992c5;
+$super-light-blue: #c3deea;
+$light-grey: #8d8d8d;
+
+$small-font: 11px;
+$medium-font: 13px;
+
+//---fonts---
+@font-face {
+  font-family: 'letspair';
+  src: url('letspair.eot');
+  src: url('letspair.eot?#iefix') format('embedded-opentype'),
+       url('letspair.woff') format('woff'),
+       url('letspair.ttf') format('truetype'),
+       url('letspair.svg#fontello') format('svg');
+  font-weight: normal; font-style: normal;
+}
+
+[class*="icon-"] {
+  font-family: 'letspair';
+  font-style: normal;
+  font-size: 2em;
+  speak: none;
+  text-decoration: none;
+}
+
+.icon-envelop:after {
+  content: "\e001"
+}
+
+.icon-clock:after {
+  content: "\e002"
+}
+
+//---common css---
+body {
+  font-family: "Trebuchet MS";
+  line-height: 18px;
+
+  background-color: $background-color;
+  background-image: image-url('bkg.png');
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+a {
+  text-decoration: underline;
+  color: $menu-font-color;
+
+  &:hover {
+    color: $light-blue;
+    text-decoration: none;
+  }
+}
+
+.separator {
+  clear: both;
+  margin: 25px 0;
+  height: 1px;
+  background: $background-color;
+  background: -webkit-gradient(
+    linear, 0 0, 100% 0, from($background-color), to($background-color), color-stop(50%, $background-color));
+}
+
+.avatar img {
+  width: $avatar-side-size;
+  height: $avatar-side-size;
+  
+  -webkit-border-radius: $avatar-radius; /* Saf3+, Chrome */
+  border-radius: $avatar-radius; /* Opera 10.5, IE 9 */
+}
+
+.highlighted-text {
+  text-transform: uppercase;
+  color: $light-blue;
+  background: $super-light-blue;
+  
+  padding-left: 5px;
+  font-size: $medium-font;
+  display: inline;
+  float: left;
+  padding-right: 5px;
+  clear: both;
+}
+
+//----pair sessions styles-----
+.pair-session {
+  margin-bottom: 40px;
+
+  .avatar {
+    float: left;
+  }
+  .information {
+    float: left;
+
+    .title {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+  .button {
+    float: right;
+  }
+}

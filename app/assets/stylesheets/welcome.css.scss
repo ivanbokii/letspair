@@ -1,0 +1,77 @@
+@import "common";
+
+.welcome-header {
+  overflow: hidden;
+
+  blockquote {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    width: 500px;
+    margin: 0.25em 0;
+    float: right;
+    width: 280px;
+    padding: 0.25em 40px;
+    line-height: 1.45;
+    position: relative;
+    color: #767676;
+
+    margin-right: 80px;
+
+    &:before {
+      display: block;
+      content: "\201C";
+      font-size: 80px;
+      position: absolute;
+      left: -20px;
+      top: -20px;
+      color: #7a7a7a;
+    }
+  }
+}
+
+.latest-events {
+  @include ul-no-style;
+
+  .information {
+    margin-left: 30px;
+    width: 600px;
+
+    .name {
+      @include font-trebuchet(15px);
+
+      color: $light-blue;
+
+      span {
+        color: $light-grey;
+        font-size: $small-font;
+      }
+    }
+
+    .brief-information {
+      font-size: $medium-font;
+    }
+
+    .bottom-info-label {
+      font-size: $small-font;
+      color: $light-grey;
+      float: left;
+      width: 400px;
+    }
+
+    .when {
+      span {
+        font-size: 1em;
+      }
+
+      color: $light-grey;
+      font-size: $small-font;
+      float: left;
+    }
+  }
+
+  .button {
+    margin-right: 100px;
+    margin-top: 20px;
+  }
+}

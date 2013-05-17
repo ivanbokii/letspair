@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Letspair</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="header">
+    <ul class="main-menu">
+      <li><a href="#">all sessions</a></li>
+      <li><a href="#">register</a></li>
+      <li><a href="#">login</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <div class="footer"></div>
+</div>
+
+</body>
+</html>
