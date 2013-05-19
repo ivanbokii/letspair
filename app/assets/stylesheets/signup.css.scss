@@ -1,0 +1,29 @@
+@import "common";
+
+.new_user {
+  input[type=email] {
+    background: white url('email_icon.png') no-repeat scroll 185px;
+  }
+
+  input[type=text] {
+    background: white url('head_icon.png') no-repeat scroll 185px;
+  }
+
+  input[type=text]#user_skills {
+    background: white url('tools_icon.png') no-repeat scroll 185px;
+  }
+
+  input[type=password]#user_password, input[type=password]#user_password_confirmation {
+    background: white url('lock_icon.png') no-repeat scroll 185px;
+  }
+
+  textarea {
+    background: white url('head_icon.png') no-repeat scroll 185px 0px;
+  }
+
+  overflow: hidden;
+
+  .left {
+    width: 400px;
+  }
+}

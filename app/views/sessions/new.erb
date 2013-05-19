@@ -1,0 +1,6 @@
+<%= form_tag(sessions_path, method: :post) do %>
+  <%= text_field_tag :username_or_email %>
+  <%= password_field_tag :password %>
+
+  <%= submit_tag "Sign in" %>
+<% end %>

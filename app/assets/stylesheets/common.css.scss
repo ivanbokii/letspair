@@ -27,6 +27,7 @@ $light-grey: #8d8d8d;
 $small-font: 11px;
 $medium-font: 13px;
 
+$input-text-color: #666;
 //---fonts---
 @font-face {
   font-family: 'letspair';
@@ -75,6 +76,30 @@ a {
   }
 }
 
+input {
+  font-size: $medium-font;
+  border: 1px solid $background-color;
+  border-radius: 2px;
+  color: $input-text-color;
+  width: 170px;
+  outline: none;
+  padding: 12px 35px 12px 10px;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+textarea {
+  font-size: $medium-font;
+  border: 1px solid $background-color;
+  border-radius: 2px;
+  color: $input-text-color;
+  width: 170px;
+  outline: none;
+  padding: 12px 35px 12px 10px;
+}
+
 .separator {
   clear: both;
   margin: 25px 0;
@@ -103,6 +128,14 @@ a {
   float: left;
   padding-right: 5px;
   clear: both;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 //----pair sessions styles-----
