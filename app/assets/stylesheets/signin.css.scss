@@ -1,0 +1,23 @@
+@import "common";
+
+.signin {
+  margin: 0 auto;
+  width: 250px;
+
+  input {
+    margin-bottom: 40px;
+  }
+
+  input[type=text] {
+    background: white url('head_icon.png') no-repeat scroll $input-background-position;
+  }
+
+  input[type=password] {
+    background: white url('lock_icon.png') no-repeat scroll $input-background-position;
+  }
+
+  input[type=submit] {
+    display: block;
+    margin: 0 auto;
+  }
+}

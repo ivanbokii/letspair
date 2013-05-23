@@ -10,11 +10,30 @@
 
 <div class="wrapper">
   <div class="header">
+    
+    <% if !@show_logo %>
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png' %>
+      <% end %>
+    <% end %>
+    
     <ul class="main-menu">
-      <li><a href="#">all sessions</a></li>
-      <li><%= link_to 'sign up', new_user_path %></li>
-      <li><%= link_to 'sign in', new_session_path %></li>
+      <% if logged_in? %>
+        <li><%= current_user.username %></li>
+        <li><%= link_to 'all sessions', users_path %></li>
+        <li><%= link_to 'profile', user_path(current_user.id) %></li>
+        <li><%= link_to 'sign out', session_path(current_user.id), method: :delete %></li>
+      <% else %>
+        <li><a href="#">all sessions</a></li>
+        <li><%= link_to 'sign up', new_user_path %></li>
+        <li><%= link_to 'sign in', new_session_path %></li>
+      <% end %>
     </ul>
+    
+    <% if !@show_logo %>
+      <div class="separator"></div>
+    <% end %>
+
   </div>
 
   <div class="container">

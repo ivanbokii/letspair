@@ -28,6 +28,9 @@ $small-font: 11px;
 $medium-font: 13px;
 
 $input-text-color: #666;
+$input-width: 200px;
+$input-background-position: 215px;
+
 //---fonts---
 @font-face {
   font-family: 'letspair';
@@ -63,7 +66,7 @@ body {
   background-color: $background-color;
   background-image: image-url('bkg.png');
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: top center;
 }
 
 a {
@@ -76,12 +79,12 @@ a {
   }
 }
 
-input {
+input[type=text], input[type=email], input[type=password] {
   font-size: $medium-font;
   border: 1px solid $background-color;
   border-radius: 2px;
   color: $input-text-color;
-  width: 170px;
+  width: $input-width;
   outline: none;
   padding: 12px 35px 12px 10px;
 }
@@ -100,13 +103,32 @@ textarea {
   padding: 12px 35px 12px 10px;
 }
 
+.calendar_list {
+  display: none;
+}
+
+.div_dates {
+  background: white 0 100% !important;
+}
+
+#calendar {
+  min-height: 260px;
+}
+
 .separator {
   clear: both;
-  margin: 25px 0;
   height: 1px;
   background: $background-color;
   background: -webkit-gradient(
     linear, 0 0, 100% 0, from($background-color), to($background-color), color-stop(50%, $background-color));
+}
+
+.separator-white {
+  clear: both;
+  height: 1px;
+  background: $background-color;
+  background: -webkit-gradient(
+    linear, 0 0, 100% 0, from($background-color), to($background-color), color-stop(50%, white));
 }
 
 .avatar img {
@@ -138,22 +160,99 @@ textarea {
   float: right;
 }
 
-//----pair sessions styles-----
-.pair-session {
-  margin-bottom: 40px;
+.clear {
+  clear: both;
+}
+
+.page-title {
+  text-transform: uppercase;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+form .button {
+  background-image: image-url('button_small.png');
+  width: 90px;
+  height: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  font-size: $small-font;
+  color: white;
+}
+
+//---sessions styles----
+.session {
+  .information {
+    float: left;
+    width: 600px;
+
+    .brief-information {
+      font-size: $medium-font;
+    }
+
+    .bottom-info-label {
+      width: 400px;
+      font-size: $small-font;
+      color: $light-grey;
+      float: left;
+    }
+
+    .when {
+      span {
+        font-size: 1em;
+      }
+
+      color: $light-grey;
+      font-size: $small-font;
+      float: left;
+    }
+
+    .name {
+      @include font-trebuchet(15px);
+
+      color: $light-blue;
+
+      span {
+        color: $light-grey;
+        font-size: $small-font;
+      }
+    }
+  }
+}
+
+.session-with-contact {
+  @extend .session;
+
+  .button {
+    float: right;
+    margin: 20px 100px 0 0;
+  }
+}
+
+.session-with-avatar {
+  @extend .session;
 
   .avatar {
     float: left;
+    margin-top: 12px;
   }
-  .information {
-    float: left;
 
-    .title {
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-  }
-  .button {
-    float: right;
+  .information {
+    margin-left: 30px;
   }
 }
+
+.session-full {
+    @extend .session-with-avatar;
+    @extend .session-with-contact;
+
+    .information {
+      .title {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+  }

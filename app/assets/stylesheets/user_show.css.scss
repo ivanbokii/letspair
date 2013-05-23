@@ -1,0 +1,32 @@
+@import "common";
+
+.user-info {
+  padding: 40px 0 40px 0;
+  overflow: hidden;
+}
+
+.user-sessions {
+  .calendar-container {
+    background-color: #e3e3e5;
+    height: 260px;
+    padding: 30px;
+
+    #calendar {
+      margin: 0 auto;
+    }
+  }
+
+  .sessions {
+    @include ul-no-style;
+
+    .session-with-contact {
+      margin: 0 auto;
+      overflow: hidden;
+      width: 700px;
+
+      .button {
+        margin-right: 0px;
+      }
+    }
+  }
+}

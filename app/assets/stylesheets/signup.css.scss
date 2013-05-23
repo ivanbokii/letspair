@@ -2,28 +2,45 @@
 
 .new_user {
   input[type=email] {
-    background: white url('email_icon.png') no-repeat scroll 185px;
+    background: white url('email_icon.png') no-repeat scroll $input-background-position;
   }
 
   input[type=text] {
-    background: white url('head_icon.png') no-repeat scroll 185px;
+    background: white url('head_icon.png') no-repeat scroll $input-background-position;
   }
 
   input[type=text]#user_skills {
-    background: white url('tools_icon.png') no-repeat scroll 185px;
+    background: white url('tools_icon.png') no-repeat scroll $input-background-position;
   }
 
   input[type=password]#user_password, input[type=password]#user_password_confirmation {
-    background: white url('lock_icon.png') no-repeat scroll 185px;
+    background: white url('lock_icon.png') no-repeat scroll $input-background-position;
   }
 
   textarea {
-    background: white url('head_icon.png') no-repeat scroll 185px 0px;
+    background: white url('head_icon.png') no-repeat scroll $input-background-position 10px;
+    width: $input-width;
+    resize: vertical;
+  }
+
+  input, textarea {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  .left {
+    width: 50%;
+  }
+
+  .right {
+    width: 50%;
+  }
+
+  input[type=submit] {
+    margin-top: 40px;
   }
 
   overflow: hidden;
-
-  .left {
-    width: 400px;
-  }
+  margin-top: 50px;
 }

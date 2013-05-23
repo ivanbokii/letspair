@@ -1,15 +1,22 @@
-<%= form_for @user do |f| %>
+<p class="page-title">
+  Sign Up
+</p>
+
+<%= form_for @user, html: {autocomplete: "off"} do |f| %>
   
   <div class="left">
     <%= f.text_field :username, placeholder: 'username' %>
     <%= f.email_field :email, placeholder: 'email' %>
-    <%= f.text_area :brief_info, placeholder: 'brief information' %>
     <%= f.password_field :password, placeholder: 'password' %>
     <%= f.password_field :password_confirmation, placeholder: 'password confirmation' %>  
   </div>
+
   <div class="right">
     <%= f.text_field :skills, placeholder: 'skills' %>
+    <%= f.text_area :brief_info, placeholder: 'brief information', rows: 12 %>
   </div> 
+
+  <div class="clear"></div>
   
-  <%= f.submit "Sign up" %>
+  <%= f.submit "Sign up", class: 'button' %>
 <% end %>
