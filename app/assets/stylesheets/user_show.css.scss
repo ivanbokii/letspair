@@ -3,16 +3,31 @@
 .user-info {
   padding: 40px 0 40px 0;
   overflow: hidden;
+
+  .edit-profile {
+    font-size: $medium-font;
+    color: $light-blue;
+  }
 }
 
 .user-sessions {
   .calendar-container {
-    background-color: #e3e3e5;
-    height: 260px;
+    background-color: $calendar-container-color;
+    height: $calendar-container-height;
     padding: 30px;
+    position: relative;
 
     #calendar {
       margin: 0 auto;
+    }
+
+    .edit-sessions {
+      display: block;
+      font-size: $medium-font;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: $light-blue;
     }
   }
 
@@ -20,7 +35,7 @@
     @include ul-no-style;
 
     .session-with-contact {
-      margin: 0 auto;
+      margin: 20px auto;
       overflow: hidden;
       width: 700px;
 
