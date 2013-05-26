@@ -34,7 +34,7 @@
   .sessions {
     @include ul-no-style;
 
-    .session-edit {
+    .session-view {
       margin: 20px auto;
       width: 830px;
       position: relative;
@@ -44,6 +44,54 @@
         bottom: 10px;
         right: 0px;
       }
+    }
+
+    .session-edit {
+      padding: 20px 0 20px 0;
+      position: relative;
+
+      .field {
+        margin-bottom: 20px;
+      }
+
+      .field label {
+        float: left;
+        width: 100px;
+        display: block;
+        text-align: right;
+
+        font-size: $medium-font;
+        color: $light-blue;
+        text-transform: uppercase;
+        margin-top: 8px;
+      }
+
+      .field textarea {
+        width: auto;
+      }
+
+      .field input, .field textarea {
+        border-color: #B3B3B3;
+      }
+
+      .field input.start-time, .field input.end-time {
+        width: 50px;
+      }
+
+      .field .control {
+        margin-left: 130px;
+      }
+
+      .field .control textarea:focus {
+        outline: none;
+      }
+
+      .edit-buttons {
+        position: absolute;
+        bottom: 10px;
+        right: 0px;
+      }
+
     }
   }
 }
