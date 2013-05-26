@@ -1,8 +1,12 @@
 Letspair::Application.routes.draw do
   root :to => 'welcome#index'
 
-  resources :users;
-  resources :sessions;
+  resources :users do
+    resources :pairsessions, controller: :user_pairsessions
+  end
+
+  resources :sessions
+  resources :pairsessions
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

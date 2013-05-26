@@ -1,0 +1,49 @@
+@import "common";
+
+.edit-user-sessions {
+  .calendar-container {
+    background-color: $calendar-container-color;
+    height: $calendar-container-height;
+    padding: 30px;
+    position: relative;
+  
+    calendar {
+      float: left;
+    }
+
+    .cloud {
+      float: right;
+      background-image: image-url('cloud.png');
+      width: 253px;
+      height: 77px;
+
+      font-size: $medium-font;
+      font-style: italic;
+      color: #767676;
+      padding: 40px 20px 20px 40px;
+      margin-right: 30px;
+    }
+
+    .button {
+      position: absolute;
+      bottom: 25px;
+      right: 60px;
+    }
+  }
+
+  .sessions {
+    @include ul-no-style;
+
+    .session-edit {
+      margin: 20px auto;
+      width: 830px;
+      position: relative;
+
+      .edit-buttons {
+        position: absolute;
+        bottom: 10px;
+        right: 0px;
+      }
+    }
+  }
+}

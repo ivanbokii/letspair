@@ -1,0 +1,2 @@
+module PairsessionsHelper
+end

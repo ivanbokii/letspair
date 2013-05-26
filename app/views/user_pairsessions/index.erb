@@ -1,51 +1,39 @@
-<div class="user-info">
-  <div class="session-with-avatar">
-    <div class="avatar">
-      <%= image_tag "test_avatar.jpg" %>
-    </div>
-    <div class="information">
-      <p class="name">Funky super user <span>GMT-5:00 Eastern Time (US & Canada)</span>&nbsp<a class='edit-profile' href="#">edit</a></p>
-      <p class="brief-information">I'm humble bundle ruby on rails developer who loves meeting new people</p>
-      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp node.js, ruby, ruby on rails</p>
-    </div>
-  </div>
-</div>
+<p class="page-title">
+  Edit your pairsessions
+</p>
 
-<div class="user-sessions" ng-app="letspair" ng-controller="UserSessionsCtrl">
+<div class="edit-user-sessions" ng-app="letspair" ng-controller="UsersSessionsCtrl">
   <div class="calendar-container">
     <calendar daychange='loadDaySessions()'></calendar>
-
-    <%= link_to 'edit', user_pairsessions_path(current_user.username), class: 'edit-sessions' %>
-    <!-- <a class="edit-sessions" href="#">edit</a> -->
+    <div class="cloud">Select a date and create or edit your pairsessions</div>
+    <input type="button" class="button" value="Create">
   </div>
 
   <ul class="sessions">
-    <li class="session-with-contact">
-      
+    <li class="session-view">
       <div class="information">
         <p class="brief-information">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
         <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp Lorem Ipsum is simply dummy text of the printing and typesetting</p>
         <p class="when"><span class="icon-clock"></span> 10am - 2pm</p>
       </div>
-      <div class="button">
-        <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
-      </div>
-
+      <ul class="edit-buttons">
+        <input type="button" class="button" value='edit'>
+        <input type="button" class="button" value='delete'>
+      </ul>
     </li>
 
     <div class="separator-white"></div>
 
-    <li class="session-with-contact">
-      
+    <li class="session-view">
       <div class="information">
         <p class="brief-information">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
         <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp Lorem Ipsum is simply dummy text of the printing and typesetting</p>
         <p class="when"><span class="icon-clock"></span> 10am - 2pm</p>
       </div>
-      <div class="button">
-        <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
-      </div>
-
+      <ul class="edit-buttons">
+        <input type="button" class="button" value='edit'>
+        <input type="button" class="button" value='delete'>
+      </ul>
     </li>
   </ul>
 </div>

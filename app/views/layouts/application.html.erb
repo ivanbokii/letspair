@@ -20,9 +20,9 @@
     <ul class="main-menu">
       <% if logged_in? %>
         <li><%= current_user.username %></li>
-        <li><%= link_to 'all sessions', users_path %></li>
-        <li><%= link_to 'profile', user_path(current_user.id) %></li>
-        <li><%= link_to 'sign out', session_path(current_user.id), method: :delete %></li>
+        <li><%= link_to 'all sessions', pairsessions_path %></li>
+        <li><%= link_to 'profile', user_path(current_user.username) %></li>
+        <li><%= link_to 'sign out', session_path(current_user.username), method: :delete %></li>
       <% else %>
         <li><a href="#">all sessions</a></li>
         <li><%= link_to 'sign up', new_user_path %></li>
