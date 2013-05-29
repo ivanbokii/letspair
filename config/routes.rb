@@ -6,7 +6,10 @@ Letspair::Application.routes.draw do
   end
 
   resources :sessions
-  resources :pairsessions
+  resources :pairsessions do
+    get 'for-date/:date', action: :fordate, on: :collection
+    get 'markers', action: :markers, on: :collection
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

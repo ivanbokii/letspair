@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   authenticates_with_sorcery!
 
+  has_many :pairsessions
+
   attr_accessor :username_or_email
   attr_accessible :username, :email, :skills, :brief_info, :password, :password_confirmation
 

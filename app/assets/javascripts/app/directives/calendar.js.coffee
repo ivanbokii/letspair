@@ -1,5 +1,5 @@
 window.letspair.application.directive 'calendar', 
-(DPCalendar) -> 
+(DPCalendar, serverPairsessions) -> 
   restrict: 'E'
   
   scope:
@@ -8,4 +8,14 @@ window.letspair.application.directive 'calendar',
   template: '<div id="calendar"></div>'
 
   link: (scope) ->
-    DPCalendar.init(scope.daychange);
+    result = serverPairsessions.getMarkers()
+    result.then(
+      (data) ->
+        dates = _.map data, (value) -> new Date(value)
+        $.fn.dp_calendar.markDates(dates)
+      (status) ->
+        $log.error "markers can not be fetched #{status}"
+    )
+
+    DPCalendar.init(scope.daychange)
+    scope.daychange()

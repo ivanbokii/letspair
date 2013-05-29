@@ -1,0 +1,34 @@
+<form>
+    <div class='field'>
+      <label>note:</label>
+      <div class='control'>
+        <textarea class='note' rows='4' cols='80' ng-model='newSession.note'></textarea>
+      </div>
+    </div>
+
+    <div class='field'>
+      <label>technologies:</label>
+      <div class='control'>
+        <input class='technologies' type='text' value='' ng-model='newSession.technologies'></input>
+      </div>
+    </div>
+
+    <div class='field'>
+      <label>start time:</label>
+      <div class='control'>
+        <input class='start-time' type='text' value='' ng-model='newSession.start_time'></input>
+      </div>
+    </div>
+
+    <div class='field'>
+      <label>end time:</label>
+      <div class='control'>
+        <input class='end-time' type='text' value='' ng-model='newSession.end_time'></input>
+      </div>
+    </div>
+
+    <ul class="edit-buttons">
+      <input type="button" class="button" value='save' ng-click="saveNewSession()">
+      <input type="button" class="button" value='cancel' ng-click="switchToCreateMode(false)">
+    </ul>
+  </form>

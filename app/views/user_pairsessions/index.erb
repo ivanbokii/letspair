@@ -2,77 +2,23 @@
   Edit your pairsessions
 </p>
 
-<div class="edit-user-sessions" ng-app="letspair" ng-controller="UsersSessionsCtrl">
+<div class="edit-user-sessions" ng-app="letspair" ng-controller="UserEditSessionsCtrl">
   <div class="calendar-container">
     <calendar daychange='loadDaySessions()'></calendar>
     <div class="cloud">Select a date and create or edit your pairsessions</div>
-    <input type="button" class="button" value="Create">
+    <input type="button" class="button" value="Create" ng-click="switchToCreateMode(true)">
   </div>
 
   <ul class="sessions">
-    <li class="session-view">
-      <div class="information">
-        <p class="brief-information">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-        <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-        <p class="when"><span class="icon-clock"></span> 10am - 2pm</p>
-      </div>
-      <ul class="edit-buttons">
-        <input type="button" class="button" value='edit'>
-        <input type="button" class="button" value='delete'>
-      </ul>
+    <li class="session-edit" ng-show="createSessionMode">
+      <ng-include src="'<%= asset_path 'new_pair_session.html' %>'"></ng-include>
     </li>
 
-    <div class="separator-white"></div>
+    <div class="separator-white" ng-show="createSessionMode"></div>
 
-    <li class="session-view">
-      <div class="information">
-        <p class="brief-information">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-        <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-        <p class="when"><span class="icon-clock"></span> 10am - 2pm</p>
-      </div>
-      <ul class="edit-buttons">
-        <input type="button" class="button" value='edit'>
-        <input type="button" class="button" value='delete'>
-      </ul>
-    </li>
-
-    <div class="separator-white"></div>
-
-    <li class="session-edit">
-      <form>
-          <div class='field'>
-            <label>note:</label>
-            <div class='control'>
-              <textarea class='note' rows='4' cols='80'>This is a note</textarea>
-            </div>
-          </div>
-
-          <div class='field'>
-            <label>technologies:</label>
-            <div class='control'>
-              <input class='technologies' type='text' value='ruby on rails, ruby, coffeescript'></input>
-            </div>
-          </div>
-
-          <div class='field'>
-            <label>start time:</label>
-            <div class='control'>
-              <input class='start-time' type='text' value=''></input>
-            </div>
-          </div>
-
-          <div class='field'>
-            <label>end time:</label>
-            <div class='control'>
-              <input class='end-time' type='text' value=''></input>
-            </div>
-          </div>
-
-          <ul class="edit-buttons">
-            <input type="button" class="button" value='edit'>
-            <input type="button" class="button" value='delete'>
-          </ul>
-        </form>
+    <li class="session-view" ng-repeat="session in sessions">
+      <pairsession session='session' deleteSession='deleteSession(session)' saveChanges='saveChanges(session)'></pairsession>
+      <div class="separator-white"></div>
     </li>
 
   </ul>

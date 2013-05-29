@@ -4,6 +4,9 @@ window.letspair.application.factory 'DPCalendar', ->
       onChangeDay: changeHandler
       onChangeMonth: changeHandler
 
+    #load markers from the backend
+    #and mark dates of pair sessions
+
   markDates = (dates) ->
     $.fn.dp_calendar.markDates(dates);
 
