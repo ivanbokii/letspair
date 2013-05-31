@@ -1,12 +1,11 @@
-window.letspair.application.controller 'UsersSessionsCtrl', 
-($scope, DPCalendar, serverPairsessions) ->
+window.letspair.application.controller 'PairsessionsUserCtrl', 
+($scope, DPCalendar, serverPairsessions, $log) ->
   $scope.sessions = []
-  $scope.showAvatar = true
 
   $scope.loadDaySessions = ->
     currentDate = DPCalendar.getCurrentDate()
     
-    sessions = serverPairsessions.getFor(currentDate)
+    sessions = serverPairsessions.getEventsForUser(currentDate)
     sessions.then(
       (data) ->
         $scope.sessions = data

@@ -228,9 +228,11 @@ form .button, .calendar-container .button, .edit-buttons .button {
     }
 
     .name {
-      @include font-trebuchet(15px);
+      a {
+        @include font-trebuchet(15px);
 
-      color: $light-blue;
+        color: $light-blue;  
+      }
 
       span {
         color: $light-grey;
@@ -283,4 +285,10 @@ form .button, .calendar-container .button, .edit-buttons .button {
 
 .session-edit {
   
+}
+
+pairsessionall, pairsessionuser, pairsessionedit {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px;
 }

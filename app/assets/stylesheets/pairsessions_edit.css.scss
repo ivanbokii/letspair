@@ -39,13 +39,6 @@
       width: 830px;
       position: relative;
 
-      pairsession {
-        overflow: hidden;
-        display: block;
-        position: relative;
-        margin-bottom: 20px;
-      }
-
       .edit-buttons {
         position: absolute;
         bottom: 10px;
@@ -54,7 +47,6 @@
     }
 
     .session-edit, .session-view form {
-      // padding: 20px 0 20px 0;
       position: relative;
       width: 830px;
       margin: 20px auto;

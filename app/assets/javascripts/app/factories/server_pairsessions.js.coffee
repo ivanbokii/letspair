@@ -49,6 +49,23 @@ window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
 
       return deferred.promise
 
+    getEventsForUser = (date) ->
+      deferred = $q.defer()
+      urlDate = date.format('YYYY-MM-DD')
+
+      $http(
+        method: 'GET'
+        url: gon.getSessionsForUserAndDate + "#{urlDate}"
+      ).
+      success( (data) ->
+        deferred.resolve data
+      ).
+      error( (data, status) -> 
+        deferred.reject status
+      )
+
+      return deferred.promise
+
     update = (session) ->
       deferred = $q.defer()
 
@@ -88,4 +105,5 @@ window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
       getFor: getFor
       update: update
       getMarkers: getMarkers
+      getEventsForUser: getEventsForUser
     }

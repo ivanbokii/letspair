@@ -15,38 +15,43 @@
 <div class="separator"></div>
 
 <ul class="latest-events">
-  <li class="session-full">
-    <p class="title">NEW PAIR SESSION</p>
+  <% @result.each_with_index do |r, index| %>
+    <li class="session-full">
+      <% if r.is_a? User %>
+        <p class="title">new member</p>
 
-    <div class="avatar">
-      <%= image_tag "test_avatar.jpg" %>
-    </div>
-    <div class="information">
-      <p class="name">Funky super user <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
-      <p class="brief-information">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-      <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-      <p class="when"><span class="icon-clock"></span> &nbsp 2013-05-13 10am - 2pm</p>
-    </div>
-    <div class="button">
-      <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
-    </div>
-  </li>
+        <div class="avatar">
+          <%= image_tag "test_avatar.jpg" %>
+        </div>
+        <div class="information">
+          <p class="name"><%= link_to r.username, r %> <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
+          <p class="brief-information"><%= r.brief_info %></p>
+          <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp <%= r.skills %></p>
+        </div>
+        <div class="button">
+          <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
+        </div>
+      <% else %>
+        <p class="title">new pair sessions</p>
 
-  <div class="separator"></div>
-
-  <li class="session-full">
-    <p class="title">new member</p>
-
-    <div class="avatar">
-      <%= image_tag "test_avatar.jpg" %>
-    </div>
-    <div class="information">
-      <p class="name">Funky super user <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
-      <p class="brief-information">I'm humble bundle ruby on rails developer who loves meeting new people</p>
-      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp node.js, ruby, ruby on rails</p>
-    </div>
-    <div class="button">
-      <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
-    </div>
-  </li>
+        <div class="avatar">
+          <%= image_tag "test_avatar.jpg" %>
+        </div>
+        <div class="information">
+          <p class="name"><%= link_to r.user.username, r.user %> <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
+          <p class="brief-information"><%= r.note %></p>
+          <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp <%= r.technologies %></p>
+          <p class="when"><span class="icon-clock"></span> &nbsp <%= r.date %> <%= r.start_time.strftime('%l:%M%P') %> - <%= r.end_time.strftime('%l:%M%P') %></p>
+        </div>
+        <div class="button">
+          <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
+        </div>
+      <% end %>
+    </li>
+    <% if index > 1 %>
+      <div class="separator-white"></div>
+    <% else %>
+      <div class="separator"></div>
+    <% end %>
+  <% end %>
 </ul>

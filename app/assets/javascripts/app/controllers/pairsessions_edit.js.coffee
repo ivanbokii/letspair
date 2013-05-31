@@ -1,4 +1,4 @@
-window.letspair.application.controller 'UserEditSessionsCtrl', 
+window.letspair.application.controller 'PairsessionsEditCtrl', 
 ($scope, serverPairsessions, DPCalendar, $log, timeHelper) ->
   $scope.createSessionMode = false
   $scope.newSession = {}

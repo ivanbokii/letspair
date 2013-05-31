@@ -14,9 +14,36 @@
   <div class="right">
     <%= f.text_field :skills, placeholder: 'skills' %>
     <%= f.text_area :brief_info, placeholder: 'brief information', rows: 12 %>
-  </div> 
+  </div>
+  <div class="clear"></div>
+  <div class="avatar-container">
+    <%= image_tag 'avatar_upload_small.png', id: 'avatar-button', onclick: "getFile()" %>
+    <p class="avatar-name" style='display:none;'></p>
+    <div style='height: 0px;width:0px; overflow:hidden;'>
+      <input id="upfile" type="file" value="upload" onchange="showFilename();"/>
+    </div>
+  </div>
 
   <div class="clear"></div>
   
   <%= f.submit "Sign up", class: 'button' %>
 <% end %>
+
+<script type="text/javascript">
+  function getFile(){
+     document.getElementById("upfile").click();
+   }
+
+   function showFilename () {
+     var selectedFile = $('#upfile').get(0).files[0];
+     $('.avatar-name').text(selectedFile.name).show();
+   }
+
+   function sub(obj){
+      var file = obj.value;
+      var fileName = file.split("\\");
+      document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
+      document.new_user.submit();
+      event.preventDefault();
+    }
+</script>

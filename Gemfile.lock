@@ -37,6 +37,9 @@ GEM
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -156,6 +159,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.2)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -189,12 +193,14 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  carrierwave
   coffee-rails (~> 3.2.1)
   friendly_id
   gon
   jazz_hands
   jquery-rails
   rails (= 3.2.13)
+  rmagick
   sass-rails (~> 3.2.3)
   sorcery
   sqlite3

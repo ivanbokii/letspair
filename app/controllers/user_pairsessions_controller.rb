@@ -37,6 +37,12 @@ class UserPairsessionsController < ApplicationController
     render status: 200, json: @controller.to_json
   end
 
+  def fordate
+    pairsessions = current_user.pairsessions.get_for_date params[:date]
+
+    render json: pairsessions.to_json
+  end
+
   private
   def clean_out_params(pairsession)
     pairsession.delete 'created_at'

@@ -1,4 +1,4 @@
-window.letspair.application.directive 'pairsession', 
+window.letspair.application.directive 'pairsessionedit', 
 (timeHelper) ->
   restrict: "E"
   scope:

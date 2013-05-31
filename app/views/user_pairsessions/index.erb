@@ -2,7 +2,7 @@
   Edit your pairsessions
 </p>
 
-<div class="edit-user-sessions" ng-app="letspair" ng-controller="UserEditSessionsCtrl">
+<div class="edit-user-sessions" ng-app="letspair" ng-controller="PairsessionsEditCtrl">
   <div class="calendar-container">
     <calendar daychange='loadDaySessions()'></calendar>
     <div class="cloud">Select a date and create or edit your pairsessions</div>
@@ -17,7 +17,7 @@
     <div class="separator-white" ng-show="createSessionMode"></div>
 
     <li class="session-view" ng-repeat="session in sessions">
-      <pairsession session='session' deleteSession='deleteSession(session)' saveChanges='saveChanges(session)'></pairsession>
+      <pairsessionedit session='session' deleteSession='deleteSession(session)' saveChanges='saveChanges(session)'></pairsessionedit>
       <div class="separator-white"></div>
     </li>
 

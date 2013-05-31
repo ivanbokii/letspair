@@ -44,3 +44,29 @@
   overflow: hidden;
   margin-top: 50px;
 }
+
+//file upload button
+#avatar-button {
+  margin: 0 auto;
+  cursor: pointer;
+  display: block;
+}
+
+.avatar-name {
+  color: $light-grey;
+  margin: 20px auto;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-size: $small_font;
+  
+  height: 20px;
+  width: 247px;
+}
+
+.avatar-container {
+  width: 100%;
+  margin: 0 auto;
+}

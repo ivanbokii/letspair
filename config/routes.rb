@@ -2,7 +2,9 @@ Letspair::Application.routes.draw do
   root :to => 'welcome#index'
 
   resources :users do
-    resources :pairsessions, controller: :user_pairsessions
+    resources :pairsessions, controller: :user_pairsessions do
+      get 'for-date/:date', action: :fordate, on: :collection
+    end
   end
 
   resources :sessions

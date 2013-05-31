@@ -26,6 +26,9 @@ group :development do
   gem 'jazz_hands'
 end
 
+gem 'rmagick'
+gem 'carrierwave'
+
 gem 'jquery-rails'
 gem 'friendly_id'
 gem 'gon'

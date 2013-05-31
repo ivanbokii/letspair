@@ -10,7 +10,11 @@ class PairsessionsController < ApplicationController
 
   def fordate
     pairsessions = Pairsession.get_for_date params[:date]
+    results = pairsessions.map do |p|
+      p[:userprofile_url] = user_url(p[:username])
+      p
+    end
 
-    render json: pairsessions.to_json
+    render json: results.to_json
   end
 end

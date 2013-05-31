@@ -2,7 +2,7 @@
   Pair Sessions
 </p>
 
-<div class="users-sessions" ng-app="letspair" ng-controller="UsersSessionsCtrl">
+<div class="users-sessions" ng-app="letspair" ng-controller="PairsessionsAllCtrl">
   <div class="calendar-container">
     <calendar daychange='loadDaySessions()'></calendar>
     <div class="cloud">Select a date and see people with open pair programming sessions</div>
@@ -10,12 +10,7 @@
 
   <ul class="sessions">
     <li class="session-full" ng-repeat="session in sessions">
-      <div class="avatar">
-        <%= image_tag "test_avatar.jpg" %>
-      </div>
-      <pairsessioncontact session='session' showAvatar='showAvatar'></pairsessioncontact>
-      <div class="button">
-        <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
-      </div>
+      <pairsessionall session='session'></pairsessionall>
+      <div class="separator-white"></div>
     </li>
 </div>
