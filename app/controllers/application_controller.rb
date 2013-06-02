@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     gon.pairsessionContactTemplateURL = ActionController::Base.helpers.asset_path('pairsession_all.erb')
     gon.pairsessionUserTemplateURL = ActionController::Base.helpers.asset_path('pairsession_user.erb')
     gon.contactButtonAssetURL = ActionController::Base.helpers.asset_path('button_contact.png')
+    gon.contactWindowTemplateURL = ActionController::Base.helpers.asset_path('contact_window.erb')
+    gon.getSessionByID = url_for(controller: 'pairsessions', action: 'show', id: '')
     gon.allMarkers = markers_pairsessions_url
     gon.getSessionsForDate = url_for(controller: 'pairsessions', action: 'fordate', date: '')
 

@@ -8,10 +8,10 @@ window.letspair.application.factory 'DPCalendar', ->
     #and mark dates of pair sessions
 
   markDates = (dates) ->
-    $.fn.dp_calendar.markDates(dates);
+    $.fn.dp_calendar.markDates(dates)
 
   getCurrentDate = ->
-    return moment($.fn.dp_calendar.getDate());
+    return moment($.fn.dp_calendar.getDate())
 
   {
     init: init

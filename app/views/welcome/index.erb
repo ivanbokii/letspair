@@ -21,7 +21,7 @@
         <p class="title">new member</p>
 
         <div class="avatar">
-          <%= image_tag "test_avatar.jpg" %>
+          <%= image_tag r.image_url %>
         </div>
         <div class="information">
           <p class="name"><%= link_to r.username, r %> <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
@@ -35,7 +35,7 @@
         <p class="title">new pair sessions</p>
 
         <div class="avatar">
-          <%= image_tag "test_avatar.jpg" %>
+          <%= image_tag r.user.image_url %>
         </div>
         <div class="information">
           <p class="name"><%= link_to r.user.username, r.user %> <span>GMT-5:00 Eastern Time (US & Canada)</span></p>

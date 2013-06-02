@@ -4,6 +4,10 @@
   padding: 40px 0 40px 0;
   overflow: hidden;
 
+  .name {
+    color: $light-blue;
+  }
+
   .edit-profile {
     font-size: $medium-font;
     color: $light-blue;

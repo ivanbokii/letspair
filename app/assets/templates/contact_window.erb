@@ -1,0 +1,32 @@
+<div class="header">
+  <a href="#" class="close"><%= image_tag 'close_button.png' %></a>
+  <h3>pair session message</h3>
+</div>
+<div class="body">
+  <div class="session-full">
+    <div class="avatar">
+      <img src="{{pairsession.user_avatar}}" alt="">
+    </div>
+    <div class="information">
+      <p class="name"> John Doe <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
+      <p class="brief-information">super awesome shit</p>
+      <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp another super fucking awesome technologies</p>
+      <p class="when"><span class="icon-clock"></span> &nbsp 2013 10:00 - 20:00</p>
+    </div>
+  </div>
+
+  <div class="note">
+    if you want to join user in the pair programming session please use this form to contact him/her
+  </div>
+
+  <div class="message">
+    <input type="text" placeholder="your e-mail"><br><br>
+    <textarea placeholder="message"></textarea>
+    
+    <ul class="buttons">
+      <li><a class="send" href="#">Send</a></li>
+      <li><a class="close" href="#">Cancel</a></li>
+    </ul>
+  </div>
+
+</div>

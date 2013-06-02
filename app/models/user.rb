@@ -7,10 +7,12 @@ class User < ActiveRecord::Base
   has_many :pairsessions
 
   attr_accessor :username_or_email
-  attr_accessible :username, :email, :skills, :brief_info, :password, :password_confirmation
+  attr_accessible :username, :email, :skills, :brief_info, :password, :password_confirmation, :image
 
   validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long", :if => :password
   validates_confirmation_of :password, :message => "should match confirmation", :if => :password
+
+  mount_uploader :image, AvatarUploader
 
   def self.get_last(number_of_users)
     self.order('created_at DESC').limit(5)

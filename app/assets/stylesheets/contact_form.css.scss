@@ -1,0 +1,71 @@
+@import "common";
+
+#contact-form {
+  width: 740px;
+  padding: 0px 30px 30px 30px;
+  background-color: white;
+  position: relative;
+
+  .header {
+    width: 740px;
+    margin: 0 auto;
+    border-bottom: 1px solid $background-color;
+
+    h3 {
+      font-size: $medium-font + 1;
+      text-transform: uppercase;
+    }
+
+    .close {
+      position: absolute;
+      top: -3px;
+      right: 10px;
+    }
+  }
+
+  .session-full {
+    border-bottom: 1px solid $background-color;
+  }
+
+  .name {
+    color: $light-blue;
+  }
+
+  .note {
+    font-size: $small-font;
+    color: $light-blue;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .message {
+    margin-top: 20px;
+    overflow: hidden;
+
+    textarea {
+      width: 690px;
+      height: 80px;
+      resize: vertical;
+    }
+
+    .buttons {
+      @include font-trebuchet(13px);
+      @include ul-no-style;
+      @include inline-li;
+      float: right;
+
+      li {
+        margin-left: 30px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $light-blue;
+      }
+    }
+  }
+}
+
+.simplemodal-overlay {
+  background-color: black;
+}

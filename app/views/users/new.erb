@@ -2,7 +2,7 @@
   Sign Up
 </p>
 
-<%= form_for @user, html: {autocomplete: "off"} do |f| %>
+<%= form_for @user, html: {autocomplete: "off", multipart: true} do |f| %>
   
   <div class="left">
     <%= f.text_field :username, placeholder: 'username' %>
@@ -14,36 +14,38 @@
   <div class="right">
     <%= f.text_field :skills, placeholder: 'skills' %>
     <%= f.text_area :brief_info, placeholder: 'brief information', rows: 12 %>
+    <!--<%= f.file_field :image %>-->
   </div>
   <div class="clear"></div>
   <div class="avatar-container">
     <%= image_tag 'avatar_upload_small.png', id: 'avatar-button', onclick: "getFile()" %>
     <p class="avatar-name" style='display:none;'></p>
     <div style='height: 0px;width:0px; overflow:hidden;'>
-      <input id="upfile" type="file" value="upload" onchange="showFilename();"/>
+      <input name="user[image]" id="image" type="file" value="image" onchange="showFilename();"/>
     </div>
   </div>
 
   <div class="clear"></div>
   
-  <%= f.submit "Sign up", class: 'button' %>
+  <%= f.submit "Sign up", class: 'button', onclick: 'sub(this)' %>
+  <!--<%= f.submit "Sign up", class: 'button' %>-->
 <% end %>
 
 <script type="text/javascript">
   function getFile(){
-     document.getElementById("upfile").click();
+     document.getElementById("image").click();
    }
 
    function showFilename () {
-     var selectedFile = $('#upfile').get(0).files[0];
+     var selectedFile = $('#image').get(0).files[0];
      $('.avatar-name').text(selectedFile.name).show();
    }
 
    function sub(obj){
       var file = obj.value;
       var fileName = file.split("\\");
-      document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
-      document.new_user.submit();
+      document.getElementById("avatar-button").innerHTML = fileName[fileName.length-1];
+      $("#new_user").submit();
       event.preventDefault();
     }
 </script>

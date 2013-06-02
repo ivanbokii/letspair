@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526122529) do
+ActiveRecord::Schema.define(:version => 20130531115259) do
 
   create_table "pairsessions", :force => true do |t|
     t.datetime "created_at",   :null => false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130526122529) do
     t.datetime "updated_at",                   :null => false
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.string   "image"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

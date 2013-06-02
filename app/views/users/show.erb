@@ -1,12 +1,12 @@
 <div class="user-info">
   <div class="session-with-avatar">
     <div class="avatar">
-      <%= image_tag "test_avatar.jpg" %>
+      <%= image_tag @user.image_url %>
     </div>
     <div class="information">
-      <p class="name">Funky super user <span>GMT-5:00 Eastern Time (US & Canada)</span>&nbsp<a class='edit-profile' href="#">edit</a></p>
-      <p class="brief-information">I'm humble bundle ruby on rails developer who loves meeting new people</p>
-      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp node.js, ruby, ruby on rails</p>
+      <p class="name"><%= @user.username %> <span>GMT-5:00 Eastern Time (US & Canada)</span>&nbsp<a class='edit-profile' href="#">edit</a></p>
+      <p class="brief-information"><%= @user.brief_info %> </p>
+      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp <%= @user.skills %></p>
     </div>
   </div>
 </div>
@@ -21,7 +21,7 @@
   <ul class="sessions">
     <li class="session-with-contact" ng-repeat="session in sessions">
       
-      <pairsessionuser session='session'></pairsessionuser>
+      <pairsessionuser opensContactForm session='session'></pairsessionuser>
       <div class="separator-white"></div>
 
     </li>
