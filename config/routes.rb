@@ -4,6 +4,7 @@ Letspair::Application.routes.draw do
   resources :users do
     resources :pairsessions, controller: :user_pairsessions do
       get 'for-date/:date', action: :fordate, on: :collection
+      get 'markers', action: :markers, on: :collection
     end
   end
 

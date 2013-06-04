@@ -49,13 +49,13 @@ window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
 
     return deferred.promise
 
-  getEventsForUser = (date) ->
+  getEventsForUser = (userId, date) ->
     deferred = $q.defer()
     urlDate = date.format('YYYY-MM-DD')
 
     $http(
       method: 'GET'
-      url: gon.getSessionsForUserAndDate + "#{urlDate}"
+      url: gon.getSessionsForUserAndDate.replace('_user_id_', userId) + "#{urlDate}"
     ).
     success( (data) ->
       deferred.resolve data
@@ -99,6 +99,22 @@ window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
 
     return deferred.promise
 
+  getMarkersForUser = (userId) ->
+    deferred = $q.defer()
+
+    $http(
+      method: 'GET'
+      url: gon.allMarkersForUser.replace('_user_id_', userId)
+    ).
+    success( (data) ->
+      deferred.resolve data
+    ).
+    error( (data, status) -> 
+      deferred.reject status
+    )
+
+    return deferred.promise
+
   getById = (id) ->
     deferred = $q.defer()
 
@@ -121,6 +137,7 @@ window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
     getFor: getFor
     update: update
     getMarkers: getMarkers
+    getMarkersForUser: getMarkersForUser
     getEventsForUser: getEventsForUser
     getById: getById
   }

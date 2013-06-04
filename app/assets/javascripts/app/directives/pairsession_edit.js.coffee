@@ -13,11 +13,14 @@ window.letspair.application.directive 'pairsessionedit',
     $scope.switchToEditMode = (switchValue) ->
       $scope.editMode = switchValue
 
-    $scope.update = (session) ->
-      $scope.switchToEditMode(false)
-      $scope.savechanges(session)
-
   link: (scope, element) ->
+    scope.update = (session) ->
+      scope.switchToEditMode(false)
+
+      session.start = element.find('.start-time').val()
+      session.end = element.find('.end-time').val()
+
+      scope.savechanges(session)
 
     #convert dates to ones with the right time in it (because of browser automatic conversion
     #to user's timezone)

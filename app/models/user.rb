@@ -9,8 +9,13 @@ class User < ActiveRecord::Base
   attr_accessor :username_or_email
   attr_accessible :username, :email, :skills, :brief_info, :password, :password_confirmation, :image
 
-  validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long", :if => :password
-  validates_confirmation_of :password, :message => "should match confirmation", :if => :password
+  validates_presence_of :username, :email
+  validates_uniqueness_of :username, :email
+
+  validates :email, email: true
+
+  validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long"
+  validates_confirmation_of :password, :message => "should match confirmation"
 
   mount_uploader :image, AvatarUploader
 

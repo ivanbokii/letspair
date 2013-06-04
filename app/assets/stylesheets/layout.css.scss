@@ -17,3 +17,13 @@
   overflow: hidden;
   padding-top: 10px;
 }
+
+.system-info .panel {
+  width: 940px;
+  background-color: $light-blue;
+  color: white;
+  font-size: $medium-font;
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 5px;
+  text-align: center;
+}

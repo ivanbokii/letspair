@@ -29,6 +29,7 @@ end
 gem 'rmagick'
 gem 'carrierwave'
 
+gem 'client_side_validations'
 gem 'jquery-rails'
 gem 'friendly_id'
 gem 'gon'

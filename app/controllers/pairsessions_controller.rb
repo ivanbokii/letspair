@@ -6,6 +6,7 @@ class PairsessionsController < ApplicationController
     pairsession = Pairsession.find(params[:id])
     result = pairsession.attributes
     result[:user_avatar] = pairsession.user.image_url
+    result[:username] = pairsession.user.username
 
     render json: result.to_json
   end

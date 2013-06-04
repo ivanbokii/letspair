@@ -25,7 +25,7 @@
         <li><%= link_to 'profile', user_path(current_user.username) %></li>
         <li><%= link_to 'sign out', session_path(current_user.username), method: :delete %></li>
       <% else %>
-        <li><a href="#">all sessions</a></li>
+        <li><%= link_to 'all sessions', pairsessions_path %></li>
         <li><%= link_to 'sign up', new_user_path %></li>
         <li><%= link_to 'sign in', new_session_path %></li>
       <% end %>
@@ -35,6 +35,15 @@
       <div class="separator"></div>
     <% end %>
 
+  </div>
+
+  <div class="system-info">
+    <% if flash.notice or flash.alert %>
+      <div class="panel">
+        <%= flash.notice %>
+        <%= flash.alert %>
+      </div>
+    <% end %>
   </div>
 
   <div class="container">

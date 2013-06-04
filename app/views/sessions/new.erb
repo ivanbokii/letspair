@@ -3,8 +3,10 @@
 </p>
 
 <%= form_tag(sessions_path, method: :post, class: 'signin', autocomplete: 'off') do %>
-  <%= text_field_tag :username_or_email, nil, placeholder: 'username of email' %>
+  <%= text_field_tag :username_or_email, nil, placeholder: 'username or email' %>
   <%= password_field_tag :password, nil, placeholder: 'password' %>
+  <%= check_box_tag 'remember_me', 'true' %>
+  <%= label_tag 'Remember me' %>
 
   <%= submit_tag "Sign in", class: 'button' %>
 <% end %>

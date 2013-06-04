@@ -2,13 +2,13 @@
   Sign Up
 </p>
 
-<%= form_for @user, html: {autocomplete: "off", multipart: true} do |f| %>
+<%= form_for @user, html: {autocomplete: "off", multipart: true}, :validate => true do |f| %>
   
   <div class="left">
-    <%= f.text_field :username, placeholder: 'username' %>
-    <%= f.email_field :email, placeholder: 'email' %>
-    <%= f.password_field :password, placeholder: 'password' %>
-    <%= f.password_field :password_confirmation, placeholder: 'password confirmation' %>  
+    <%= f.text_field :username, placeholder: 'username', autofocus: true, validate: true %>
+    <%= f.email_field :email, placeholder: 'email', validate: true %>
+    <%= f.password_field :password, placeholder: 'password', validate: true %>
+    <%= f.password_field :password_confirmation, placeholder: 'password confirmation', validate: true %>  
   </div>
 
   <div class="right">
@@ -36,16 +36,27 @@
      document.getElementById("image").click();
    }
 
+   window.canSubmit = true;
    function showFilename () {
      var selectedFile = $('#image').get(0).files[0];
-     $('.avatar-name').text(selectedFile.name).show();
+
+     window.canSubmit = !((selectedFile.size / 1000000) > 2 || selectedFile.type.indexOf("image") == -1)
+     if(window.canSubmit) {
+      $('.avatar-name').text(selectedFile.name).show();
+     }
+     else {
+      $('.avatar-name').text('avatar has a wrong type or too big to upload').show();
+     }
    }
 
    function sub(obj){
-      var file = obj.value;
-      var fileName = file.split("\\");
-      document.getElementById("avatar-button").innerHTML = fileName[fileName.length-1];
-      $("#new_user").submit();
+      // var file = obj.value;
+      // var fileName = file.split("\\");
+      // document.getElementById("avatar-button").innerHTML = fileName[fileName.length-1];
+      if(window.canSubmit) {
+        $("#new_user").submit();
+      }
+
       event.preventDefault();
     }
 </script>

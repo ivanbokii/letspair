@@ -3,8 +3,10 @@
 </p>
 
 <div class="edit-user-sessions" ng-app="letspair" ng-controller="PairsessionsEditCtrl">
+  <input class="user-id" type="hidden" ng-init='userId=<%= current_user.id %>'/>
+  
   <div class="calendar-container">
-    <calendar daychange='loadDaySessions()'></calendar>
+    <calendar daychange='loadDaySessions()' userid='<%= current_user.id %>'></calendar>
     <div class="cloud">Select a date and create or edit your pairsessions</div>
     <input type="button" class="button" value="Create" ng-click="switchToCreateMode(true)">
   </div>

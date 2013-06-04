@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @show_edit = (current_user and @user.id == current_user.id)
   end
 
   def new
@@ -15,5 +16,15 @@ class UsersController < ApplicationController
     user.save();
 
     redirect_to :root
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    User.update(params[:id], params[:user])
+
+    redirect_to user_url
   end
 end

@@ -14,8 +14,8 @@ window.letspair.application.factory 'timeHelper', ->
     hours = if hours < 10 then '0' + hours else hours
     minutes = if minutes < 10 then '0' + minutes else minutes
     seconds = if seconds < 10 then '0' + seconds else seconds
-         
-    new Date(year + '-' + month + '-' + day + ' ' + hours + ':' + minutes)
+    
+    moment(year + '-' + month + '-' + day + ' ' + hours + ':' + minutes, 'YYYY-mm-dd HH:mm').toDate()
 
   getShortTime = (time) ->
     moment(time).format('hh:mma')

@@ -38,9 +38,17 @@ class UserPairsessionsController < ApplicationController
   end
 
   def fordate
-    pairsessions = current_user.pairsessions.get_for_date params[:date]
+    user = User.find(params[:user_id])
+    pairsessions = user.pairsessions.get_for_date params[:date]
 
     render json: pairsessions.to_json
+  end
+
+  def markers
+    user = User.find(params[:user_id])
+    dates = user.pairsessions.get_sessions_dates
+
+    render json: dates.to_json
   end
 
   private
@@ -50,5 +58,9 @@ class UserPairsessionsController < ApplicationController
     pairsession.delete 'start'
     pairsession.delete 'end'
     pairsession.delete 'id'
+    pairsession.delete 'username'
+    pairsession.delete 'timezone'
+    pairsession.delete 'userprofile_url'
+    pairsession.delete 'user_avatar'
   end
 end

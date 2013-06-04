@@ -8,10 +8,10 @@
       <img src="{{pairsession.user_avatar}}" alt="">
     </div>
     <div class="information">
-      <p class="name"> John Doe <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
-      <p class="brief-information">super awesome shit</p>
-      <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp another super fucking awesome technologies</p>
-      <p class="when"><span class="icon-clock"></span> &nbsp 2013 10:00 - 20:00</p>
+      <p class="name"> {{pairsession.username}} <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
+      <p class="brief-information">{{pairsession.note}}</p>
+      <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp {{pairsession.technologies}}</p>
+      <p class="when"><span class="icon-clock"></span> &nbsp {{pairsession.date}} {{pairsession.start}} - {{pairsession.end}}</p>
     </div>
   </div>
 

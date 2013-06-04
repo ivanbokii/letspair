@@ -25,6 +25,10 @@
 
   .session-full {
     border-bottom: 1px solid $background-color;
+
+    .when {
+      float: right;
+    }
   }
 
   .name {

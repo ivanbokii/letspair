@@ -1,11 +1,16 @@
 window.letspair.application.directive 'pairsessionall', 
 (timeHelper) ->
   restrict: "E"
+  require: 'openscontactform'
   scope:
     session: '='
 
   templateUrl: gon.pairsessionContactTemplateURL
-  link: (scope, element) ->
+  link: (scope, element, attrs, opensContactFormController) ->
+
+    scope.contact = (event) ->
+      opensContactFormController.open(scope.session.id)
+      event.preventDefault()
 
     #convert dates to ones with the right time in it (because of browser automatic conversion
     #to user's timezone)

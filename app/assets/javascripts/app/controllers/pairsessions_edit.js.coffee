@@ -7,7 +7,7 @@ window.letspair.application.controller 'PairsessionsEditCtrl',
   $scope.loadDaySessions = ->
     currentDate = DPCalendar.getCurrentDate()
     
-    sessions = serverPairsessions.getFor(currentDate)
+    sessions = serverPairsessions.getEventsForUser($scope.userId, currentDate)
     sessions.then(
       (data) ->
         $scope.sessions = data

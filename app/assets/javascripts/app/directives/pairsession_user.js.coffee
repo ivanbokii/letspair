@@ -6,11 +6,6 @@ window.letspair.application.directive 'pairsessionuser',
     session: '='
 
   templateUrl: gon.pairsessionUserTemplateURL
-  # controller: ($scope) ->
-    # $scope.contact = (event) ->
-    #   opensContactFormController.open()
-    #   event.preventDefault()
-
   link: (scope, element, attrs, opensContactFormController) ->
 
     scope.contact = (event) ->

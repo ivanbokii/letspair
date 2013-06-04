@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require rails.validations
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .

@@ -3,10 +3,22 @@ class WelcomeController < ApplicationController
     @show_logo = true;
 
     #ivanbokii todo | this code should go to a separate service
-    top_pairsessions = Pairsession.get_last(5)
-    top_users = User.get_last(5)
+    top_pairsessions = Pairsession.get_last(5).map do |tp|
+      result = tp.attributes
+      result[:userprofile_url] = user_url(tp.user.username)
+      result[:username] = tp.user.username
+      result[:user_avatar] = tp.user.image_url
+      result
+    end
 
-    united_entities = top_pairsessions.concat top_users
-    @result = united_entities.sort { |a, b| b.created_at <=> a.created_at }
+
+    top_users = User.get_last(5).map do |tu|
+      result = tu.attributes
+      result[:userprofile_url] = user_url(tu.username)
+      result[:user_avatar] = tu.image_url
+      result
+    end
+
+    gon.events = top_pairsessions.concat top_users
   end
 end

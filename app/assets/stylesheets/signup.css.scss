@@ -1,6 +1,6 @@
 @import "common";
 
-.new_user {
+.new_user, .edit_user {
   input[type=email] {
     background: white url('email_icon.png') no-repeat scroll $input-background-position;
   }
@@ -43,6 +43,24 @@
 
   overflow: hidden;
   margin-top: 50px;
+
+  .field_with_errors {
+    margin-bottom: 40px;
+
+    input {
+      margin-bottom: 0px;
+    }
+
+    label {
+      width: 247px;
+      margin: 0 auto;
+      display: block;
+      font-size: $small-font;
+      color: red;
+      text-align: right;
+    }
+  }
+
 }
 
 //file upload button

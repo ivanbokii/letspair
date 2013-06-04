@@ -20,4 +20,9 @@
     display: block;
     margin: 0 auto;
   }
+
+  label {
+    font-size: $small-font;
+    color: $light-grey;
+  }
 }

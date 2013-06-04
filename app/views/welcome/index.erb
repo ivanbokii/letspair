@@ -14,44 +14,9 @@
 </div>
 <div class="separator"></div>
 
-<ul class="latest-events">
-  <% @result.each_with_index do |r, index| %>
-    <li class="session-full">
-      <% if r.is_a? User %>
-        <p class="title">new member</p>
-
-        <div class="avatar">
-          <%= image_tag r.image_url %>
-        </div>
-        <div class="information">
-          <p class="name"><%= link_to r.username, r %> <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
-          <p class="brief-information"><%= r.brief_info %></p>
-          <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp <%= r.skills %></p>
-        </div>
-        <div class="button">
-          <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
-        </div>
-      <% else %>
-        <p class="title">new pair sessions</p>
-
-        <div class="avatar">
-          <%= image_tag r.user.image_url %>
-        </div>
-        <div class="information">
-          <p class="name"><%= link_to r.user.username, r.user %> <span>GMT-5:00 Eastern Time (US & Canada)</span></p>
-          <p class="brief-information"><%= r.note %></p>
-          <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp <%= r.technologies %></p>
-          <p class="when"><span class="icon-clock"></span> &nbsp <%= r.date %> <%= r.start_time.strftime('%l:%M%P') %> - <%= r.end_time.strftime('%l:%M%P') %></p>
-        </div>
-        <div class="button">
-          <a href="#" class="contact"><%= image_tag "button_contact.png" %></a>
-        </div>
-      <% end %>
-    </li>
-    <% if index > 1 %>
-      <div class="separator-white"></div>
-    <% else %>
-      <div class="separator"></div>
-    <% end %>
-  <% end %>
+<ul class="latest-events" ng-app="letspair" ng-controller="WelcomeCtrl">
+  <li class="session-full" ng-repeat="event in events | orderBy:'created_at':'reverse'">
+    <lastevent opensContactForm event="event"></lastevent>
+    <div class="separator-white"></div>
+  </li>
 </ul>

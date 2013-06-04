@@ -4,7 +4,7 @@
       <%= image_tag @user.image_url %>
     </div>
     <div class="information">
-      <p class="name"><%= @user.username %> <span>GMT-5:00 Eastern Time (US & Canada)</span>&nbsp<a class='edit-profile' href="#">edit</a></p>
+      <p class="name"><%= @user.username %> <span>GMT-5:00 Eastern Time (US & Canada)</span> <% if @show_edit %> &nbsp <%= link_to "edit", edit_user_path(current_user) %><% end %></p>
       <p class="brief-information"><%= @user.brief_info %> </p>
       <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp <%= @user.skills %></p>
     </div>
@@ -12,10 +12,13 @@
 </div>
 
 <div class="user-sessions" ng-app="letspair" ng-controller="PairsessionsUserCtrl">
+  <input class="user-id" type="hidden" ng-init='userId= <%= @user.id %>'/>
   <div class="calendar-container">
-    <calendar daychange='loadDaySessions()'></calendar>
+    <calendar daychange='loadDaySessions()' ></calendar>
 
-    <%= link_to 'edit', user_pairsessions_path(current_user.username), class: 'edit-sessions' %>
+    <% if @show_edit %>
+      <%= link_to 'edit', user_pairsessions_path(current_user.username), class: 'edit-sessions' %>
+    <% end %>
   </div>
 
   <ul class="sessions">

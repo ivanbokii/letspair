@@ -1,0 +1,46 @@
+<p class="page-title">
+  Edit information
+</p>
+
+<%= form_for @user, html: {autocomplete: "off", multipart: true} do |f| %>
+  
+  <div class="left">
+    <%= f.email_field :email, placeholder: 'email' %>
+    <%= f.text_field :skills, placeholder: 'skills' %>
+
+    <div class="avatar-container">
+      <%= image_tag 'avatar_upload_small.png', id: 'avatar-button', onclick: "getFile()" %>
+      <p class="avatar-name" style='display:none;'></p>
+      <div style='height: 0px;width:0px; overflow:hidden;'>
+        <input name="user[image]" id="image" type="file" value="image" onchange="showFilename();"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <%= f.text_area :brief_info, placeholder: 'brief information', rows: 12 %>
+  </div>
+  <div class="clear"></div>
+  
+  <%= f.submit "Edit", class: 'button', onclick: 'sub(this)' %>
+  <!--<%= f.submit "Sign up", class: 'button' %>-->
+<% end %>
+
+<script type="text/javascript">
+  function getFile(){
+     document.getElementById("image").click();
+   }
+
+   function showFilename () {
+     var selectedFile = $('#image').get(0).files[0];
+     $('.avatar-name').text(selectedFile.name).show();
+   }
+
+   function sub(obj){
+      var file = obj.value;
+      var fileName = file.split("\\");
+      document.getElementById("avatar-button").innerHTML = fileName[fileName.length-1];
+      $(".edit_user").submit();
+      event.preventDefault();
+    }
+</script>
