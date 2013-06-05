@@ -1,31 +1,29 @@
-<form>
+<form class='new-session-form'>
     <div class='field'>
       <label>note:</label>
       <div class='control'>
-        <textarea class='note' rows='4' cols='80' ng-model='newSession.note'></textarea>
+        <textarea class='note validate[required]' rows='4' cols='80' ng-model='newSession.note'></textarea>
       </div>
     </div>
 
     <div class='field'>
       <label>technologies:</label>
       <div class='control'>
-        <input class='technologies' type='text' value='' ng-model='newSession.technologies'></input>
+        <input class='technologies validate[required]' type='text' value='' ng-model='newSession.technologies'></input>
       </div>
     </div>
 
     <div class='field'>
       <label>start time:</label>
       <div class='control'>
-        <!-- <input class='start-time' type='text' value='' ng-model='newSession.start_time'></input> -->
-        <input class='start-time' timepicker time='newSession.start_time' type='text' value=''></input>
+        <input class='start-time validate[required]' timepicker time='newSession.start_time' type='text' value=''></input>
       </div>
     </div>
 
     <div class='field'>
       <label>end time:</label>
       <div class='control'>
-        <!-- <input class='end-time' type='text' value='' ng-model='newSession.end_time'></input> -->
-        <input class='end-time' timepicker time='newSession.end_time' type='text' value=''></input>
+        <input class='end-time validate[required]' timepicker time='newSession.end_time' type='text' value=''></input>
       </div>
     </div>
 

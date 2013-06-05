@@ -12,32 +12,32 @@
   </div>
 
   <div ng-switch-when="true">
-    <form>
+    <form class="edit-session-form">
         <div class='field'>
           <label>note:</label>
           <div class='control'>
-            <textarea class='note' rows='4' cols='80' ng-model='session.note'></textarea>
+            <textarea class='note validate[required]' data-prompt-position='bottomRight: -100,3' rows='4' cols='80' ng-model='session.note'></textarea>
           </div>
         </div>
 
         <div class='field'>
           <label>technologies:</label>
           <div class='control'>
-            <input class='technologies' type='text' value='' ng-model='session.technologies'></input>
+            <input class='technologies validate[required]' type='text' value='' ng-model='session.technologies'></input>
           </div>
         </div>
 
         <div class='field'>
           <label>start time:</label>
           <div class='control'>
-            <input class='start-time' timepicker time='session.start' type='text' value=''></input>
+            <input class='start-time validate[required]' timepicker time='session.start' type='text' value=''></input>
           </div>
         </div>
 
         <div class='field'>
           <label>end time:</label>
           <div class='control'>
-            <input class='end-time' timepicker time='session.end' type='text' value=''></input>
+            <input class='end-time validate[required]' timepicker time='session.end' type='text' value=''></input>
           </div>
         </div>
 

@@ -12,9 +12,13 @@ window.letspair.application.directive 'pairsessionedit',
 
     $scope.switchToEditMode = (switchValue) ->
       $scope.editMode = switchValue
+      $('.edit-session-form').validationEngine('hide') if switchValue
 
   link: (scope, element) ->
     scope.update = (session) ->
+      validationResult = $('.edit-session-form').validationEngine('validate')
+      return unless validationResult
+
       scope.switchToEditMode(false)
 
       session.start = element.find('.start-time').val()

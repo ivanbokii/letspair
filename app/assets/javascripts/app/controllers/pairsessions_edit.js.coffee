@@ -18,8 +18,14 @@ window.letspair.application.controller 'PairsessionsEditCtrl',
   $scope.switchToCreateMode = (switchValue) ->
     $scope.newSession = {}
     $scope.createSessionMode = switchValue
+    $('.new-session-form').validationEngine('hide') if switchValue
 
   $scope.saveNewSession = ->
+    #this is not conventional for angular.js. should be refactored to the directive
+    validationResult = $('.new-session-form').validationEngine('validate')
+    return unless validationResult
+
+
     $scope.newSession.date = DPCalendar.getCurrentDate()
     result = serverPairsessions.save $scope.newSession
     newSession = $scope.newSession

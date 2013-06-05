@@ -27,20 +27,34 @@
 <% end %>
 
 <script type="text/javascript">
-  function getFile(){
-     document.getElementById("image").click();
-   }
+  function getFile() {
+    document.getElementById("image").click();
+  }
 
-   function showFilename () {
-     var selectedFile = $('#image').get(0).files[0];
-     $('.avatar-name').text(selectedFile.name).show();
-   }
+  window.canSubmit = true;
+  function showFilename () {
+    var selectedFile = $('#image').get(0).files[0];
 
-   function sub(obj){
-      var file = obj.value;
-      var fileName = file.split("\\");
-      document.getElementById("avatar-button").innerHTML = fileName[fileName.length-1];
-      $(".edit_user").submit();
+    if(_.isUndefined(selectedFile)) {
+      $('.avatar-name').text('').show();
+      window.canSubmit = true;
+      return;
+    }
+
+    window.canSubmit = !((selectedFile.size / 1000000) > 2 || selectedFile.type.indexOf("image") == -1)
+      if(window.canSubmit) {
+        $('.avatar-name').text(selectedFile.name).show();
+      }
+      else {
+        $('.avatar-name').text('avatar has a wrong type or too big to upload').show();
+      }
+    }
+
+    function sub(obj){
+      if(window.canSubmit) {
+        $(".edit_user").submit();
+      }
+
       event.preventDefault();
     }
 </script>
