@@ -7,15 +7,20 @@ class User < ActiveRecord::Base
   has_many :pairsessions
 
   attr_accessor :username_or_email
-  attr_accessible :username, :email, :skills, :brief_info, :password, :password_confirmation, :image
+  attr_accessible :username, :email, :skills, :brief_info, :password, :password_confirmation, :image, :time_zone
 
-  validates_presence_of :username, :email
+  validates_presence_of :username, :email, :time_zone
   validates_uniqueness_of :username, :email
 
   validates :email, email: true
 
-  validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long"
-  validates_confirmation_of :password, :message => "should match confirmation"
+  validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long", if: :password
+  validates_confirmation_of :password, :message => "should match confirmation", if: :password
+
+  #we need this because password validation is conditional and client_side_validaton gem is used
+  def password
+    true
+  end
 
   mount_uploader :image, AvatarUploader
 

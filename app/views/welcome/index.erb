@@ -17,6 +17,6 @@
 <ul class="latest-events" ng-app="letspair" ng-controller="WelcomeCtrl">
   <li class="session-full" ng-repeat="event in events | orderBy:'created_at':'reverse'">
     <lastevent opensContactForm event="event"></lastevent>
-    <div class="separator-white"></div>
+    <div ng-class="{true: 'separator-white', false: 'separator'}[$index >= 1]"></div>
   </li>
 </ul>

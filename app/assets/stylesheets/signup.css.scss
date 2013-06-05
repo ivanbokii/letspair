@@ -9,6 +9,10 @@
     background: white url('head_icon.png') no-repeat scroll $input-background-position;
   }
 
+  input[type=text]#user_time_zone {
+    background: white no-repeat scroll $input-background-position;
+  }
+
   input[type=text]#user_skills {
     background: white url('tools_icon.png') no-repeat scroll $input-background-position;
   }

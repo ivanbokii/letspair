@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
       result[:userprofile_url] = user_url(tp.user.username)
       result[:username] = tp.user.username
       result[:user_avatar] = tp.user.image_url
+      result[:time_zone] = tp.user.time_zone
       result
     end
 

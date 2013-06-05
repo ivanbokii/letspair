@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    User.update(params[:id], params[:user])
+    current_user.update_attributes(params[:user])
 
     redirect_to user_url
   end
