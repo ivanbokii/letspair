@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = login(params[:username_or_email], params[:password], params[:remember_me])
+    
     if @user
       redirect_to :root
     else

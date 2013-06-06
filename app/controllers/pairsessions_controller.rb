@@ -18,6 +18,18 @@ class PairsessionsController < ApplicationController
     render json: dates.to_json
   end
 
+  def contact
+    session = Pairsession.find(params[:pairsession_id])
+    to_email = session.user.email
+
+    contact_information = params[:contact_information]
+
+    SystemMailer.pair_message(to_email, contact_information[:email], 
+      contact_information[:message], session).deliver
+
+    render status: :ok, json: @controller.to_json
+  end
+
   def fordate
     pairsessions = Pairsession.get_for_date params[:date]
     results = pairsessions.map do |p|

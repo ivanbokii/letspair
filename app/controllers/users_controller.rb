@@ -13,10 +13,15 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(params[:user])
-    user.save();
-    auto_login(user, false)
 
-    redirect_to :root
+    if user.save
+      auto_login(user, false)
+      redirect_to :root
+    else
+      flash.notice = user.errors.messages
+      redirect_to :root
+    end
+    
   end
 
   def edit

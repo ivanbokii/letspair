@@ -19,14 +19,14 @@
     if you want to join user in the pair programming session please use this form to contact him/her
   </div>
 
-  <div class="message">
-    <input type="text" placeholder="your e-mail"><br><br>
-    <textarea placeholder="message"></textarea>
+  <form class="message">
+    <input type="text" placeholder="your e-mail" ng-model='contactMessage.email'><br><br>
+    <textarea placeholder="message" ng-model='contactMessage.message'></textarea>
     
     <ul class="buttons">
-      <li><a class="send" href="#">Send</a></li>
+      <li><a class="send" href="#" ng-click="sendContactMessage()">Send</a></li>
       <li><a class="close" href="#">Cancel</a></li>
     </ul>
-  </div>
+  </form>
 
 </div>

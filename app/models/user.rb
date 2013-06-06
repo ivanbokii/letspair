@@ -14,12 +14,11 @@ class User < ActiveRecord::Base
 
   validates :email, email: true
 
-  validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long", if: :password
+  validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long", if: :should_validate_password?
   validates_confirmation_of :password, :message => "should match confirmation", if: :password
 
-  #we need this because password validation is conditional and client_side_validaton gem is used
-  def password
-    true
+  def should_validate_password?
+    new_record?
   end
 
   mount_uploader :image, AvatarUploader

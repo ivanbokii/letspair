@@ -34,4 +34,7 @@ Letspair::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #custom settings
+  config.action_mailer.asset_host = "http://0.0.0.0:3000"
 end

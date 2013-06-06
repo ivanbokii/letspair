@@ -24,6 +24,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'jazz_hands'
+  gem 'mail_view'
 end
 
 gem 'rmagick'

@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+<body>
+  
+  <table style="width: 100%; line-height: 18px; font-family: 'Trebuchet MS'; font-size: 14px" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="padding: 50px 0 20px 50px;"><a href="http://letspair.net"><%= image_tag 'logo.png' %></a></td>
+    </tr>
+    <tr style="height: 111px;">
+      <td style="background-image: url(<%= asset_path 'email/email_background_gradient.png' %>); padding-left: 20px;"><h1>New Pair Message</h1></td>
+    </tr>
+    <tr style="background-color: #fbfbfb">
+      <td style="padding-left: 20px;">Hi <%= @session.user.username %>, <a href="mailto:<%= @email %>"><%= @email %></a> is interested in pairing with you on your pair session:</td>
+    </tr>
+    <tr style="background-color: #fbfbfb;">
+      <td style="padding-left: 20px; color: #8d8d8d"><br><%= @session.note %></td>
+    </tr>
+    <tr style="background-color: #fbfbfb;">
+      <td style="padding-left: 20px; color: #8d8d8d "><span style="color: #1992c5">Technologies: </span><%= @session.technologies %></td>
+    </tr>
+    <tr style="background-color: #fbfbfb;">
+      <td style="padding-left: 20px; color: #8d8d8d"><span style="color: #1992c5">Date and Time: </span><%= @session.date %> <%= @session.start_time.strftime('%l:%M%P') %> - <%= @session.end_time.strftime('%l:%M%P') %></td>
+    </tr>
+
+    <tr style="background-color: #fbfbfb;">
+      <td style="padding-left: 20px;"><br>Here is the message:</td>
+    </tr>
+    <tr style="background-color: #fbfbfb;">
+      <td style="padding-left: 20px; padding-right: 20px; font-size: 12px;">"<%= @message %>"</td>
+    </tr>
+
+    <tr style="background-color: #fbfbfb;">
+      <td style="padding-left: 20px;"><br>Use the email to contact with this person and arrange the pair session.</td>
+    </tr>
+
+    <tr style="background-color: #fbfbfb;"><td><br></td></tr>
+    <tr style="background-color: #fbfbfb;">
+      <td style="border-top: solid 1px #8d8d8d"></td>
+    </tr>
+
+    <tr style="background-color: #fbfbfb;">
+      <td style="padding-left: 20px; font-size: 11px; color: #8d8d8d">Thank You for using <a href="http://letspair.net">letspair.net</a>. If you have an idea on how to improve the service use <a href="http://letspair.userecho.com">letspair.userecho.com</a> site.</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

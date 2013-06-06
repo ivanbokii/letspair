@@ -16,7 +16,6 @@ window.letspair.application.directive 'calendar',
     else
       result = serverPairsessions.getMarkersForUser(scope.userid()) 
 
-    result = 
     result.then(
       (data) ->
         dates = _.map data, (value) -> new Date(value)

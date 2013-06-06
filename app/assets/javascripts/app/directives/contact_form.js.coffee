@@ -3,6 +3,8 @@ window.letspair.application.directive 'openscontactform',
   restrict: 'A'
 
   controller: ($scope) ->
+    $scope.contactMessage = {}
+
     showModalWindow = (template, pairsession) ->
       $scope.pairsession = pairsession
       result = $compile(template)($scope)
@@ -26,3 +28,22 @@ window.letspair.application.directive 'openscontactform',
         pairsession.end = timeHelper.getShortTime endTime
 
         showModalWindow(template, pairsession)
+
+    $scope.sendContactMessage = () ->
+      #todo not conventional for angular.js
+      
+      contactMessage = 
+        pairsession_id: $scope.pairsession.id
+        email: $scope.contactMessage.email
+        message: $scope.contactMessage.message
+
+      result = serverPairsessions.sendContactMessage(contactMessage)
+
+      #clearing out
+      $scope.contactMessage = {}
+
+      #I know this is not good and we need to receive server response
+      #to notify user about success or any errors, but I'm going to
+      #remove email usage for communication and move to site messages
+      $.modal.close()
+

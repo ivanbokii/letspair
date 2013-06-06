@@ -12,6 +12,11 @@ Letspair::Application.routes.draw do
   resources :pairsessions do
     get 'for-date/:date', action: :fordate, on: :collection
     get 'markers', action: :markers, on: :collection
+    post 'contact', action: :contact
+  end
+
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
   end
   
   # The priority is based upon order of creation:

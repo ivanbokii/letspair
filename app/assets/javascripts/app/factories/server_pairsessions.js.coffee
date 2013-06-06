@@ -131,6 +131,24 @@ window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
 
     return deferred.promise
 
+  sendContactMessage = (data) ->
+    deferred = $q.defer()
+
+    $http(
+      method: 'POST'
+      url: gon.pairsession_contact.replace('_pairsession_id_', data.pairsession_id)
+      data: {contact_information: data}
+    ).
+    success( (data) ->
+      deferred.resolve data
+    ).
+    error( (data, status) -> 
+      deferred.reject status
+    )
+
+    return deferred.promise
+
+
   {
     save: save
     destroy: destroy
@@ -140,4 +158,5 @@ window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
     getMarkersForUser: getMarkersForUser
     getEventsForUser: getEventsForUser
     getById: getById
+    sendContactMessage: sendContactMessage
   }
