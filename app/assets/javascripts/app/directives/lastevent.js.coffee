@@ -1,4 +1,5 @@
 window.letspair.application.directive 'lastevent',
+['timeHelper',
 (timeHelper) ->
   restrict: 'E'
   require: 'openscontactform'
@@ -19,3 +20,4 @@ window.letspair.application.directive 'lastevent',
     scope.contact = (event) ->
       opensContactFormController.open(scope.event.id)      
       event.preventDefault()
+]

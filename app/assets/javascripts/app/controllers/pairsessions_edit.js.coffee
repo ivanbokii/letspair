@@ -1,4 +1,5 @@
 window.letspair.application.controller 'PairsessionsEditCtrl', 
+['$scope', 'serverPairsessions', 'DPCalendar', '$log', 'timeHelper',
 ($scope, serverPairsessions, DPCalendar, $log, timeHelper) ->
   $scope.createSessionMode = false
   $scope.newSession = {}
@@ -85,3 +86,4 @@ window.letspair.application.controller 'PairsessionsEditCtrl',
       (status) ->
         $log.error "pairsession was not saved #{status}"
     )
+]

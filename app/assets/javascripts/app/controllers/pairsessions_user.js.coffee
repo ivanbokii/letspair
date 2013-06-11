@@ -1,4 +1,5 @@
 window.letspair.application.controller 'PairsessionsUserCtrl', 
+['$scope', 'DPCalendar', 'serverPairsessions', '$log',
 ($scope, DPCalendar, serverPairsessions, $log) ->
   $scope.sessions = []
 
@@ -12,3 +13,4 @@ window.letspair.application.controller 'PairsessionsUserCtrl',
       (status) ->
         $log.error "can not load sessions for #{currentDate} #{status}"
     )
+]

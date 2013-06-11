@@ -1,4 +1,5 @@
 window.letspair.application.directive 'openscontactform',
+['$http', '$compile', 'serverTemplates', 'serverPairsessions', '$q', 'modalWindow', 'timeHelper',
 ($http, $compile, serverTemplates, serverPairsessions, $q, modalWindow, timeHelper) ->
   restrict: 'A'
 
@@ -51,4 +52,4 @@ window.letspair.application.directive 'openscontactform',
       #remove email usage for communication and move to site messages
       $.modal.close()
       event.preventDefault()
-
+]

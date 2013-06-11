@@ -1,4 +1,4 @@
-window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
+window.letspair.application.factory 'serverPairsessions', ['$http', '$q', ($http, $q) ->
   save = (session) ->
     deferred = $q.defer()
 
@@ -160,3 +160,4 @@ window.letspair.application.factory 'serverPairsessions', ($http, $q) ->
     getById: getById
     sendContactMessage: sendContactMessage
   }
+]

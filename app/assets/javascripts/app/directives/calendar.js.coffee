@@ -1,4 +1,5 @@
 window.letspair.application.directive 'calendar', 
+['DPCalendar', 'serverPairsessions',
 (DPCalendar, serverPairsessions) -> 
   restrict: 'E'
   
@@ -26,3 +27,4 @@ window.letspair.application.directive 'calendar',
 
     DPCalendar.init(scope.daychange)
     scope.daychange()
+]

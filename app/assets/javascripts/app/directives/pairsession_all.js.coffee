@@ -1,4 +1,5 @@
 window.letspair.application.directive 'pairsessionall', 
+['timeHelper',
 (timeHelper) ->
   restrict: "E"
   require: 'openscontactform'
@@ -19,3 +20,4 @@ window.letspair.application.directive 'pairsessionall',
 
     scope.session.start = timeHelper.getShortTime startTime
     scope.session.end = timeHelper.getShortTime endTime
+]

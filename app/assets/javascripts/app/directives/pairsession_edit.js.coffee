@@ -1,4 +1,5 @@
 window.letspair.application.directive 'pairsessionedit', 
+['timeHelper',
 (timeHelper) ->
   restrict: "E"
   scope:
@@ -38,3 +39,4 @@ window.letspair.application.directive 'pairsessionedit',
 
       scope.session.start = timeHelper.getShortTime startTime
       scope.session.end = timeHelper.getShortTime endTime
+]
