@@ -5,7 +5,7 @@
 <div class="body">
   <div class="session-full">
     <div class="avatar">
-      <img src="{{pairsession.user_avatar}}" alt="">
+      <img ng-src="{{pairsession.user_avatar}}" alt="">
     </div>
     <div class="information">
       <p class="name"> {{pairsession.username}} <span>{{pairsession.time_zone}}</span></p>
@@ -20,11 +20,11 @@
   </div>
 
   <form class="message">
-    <input type="text" placeholder="your e-mail" ng-model='contactMessage.email'><br><br>
-    <textarea placeholder="message" ng-model='contactMessage.message'></textarea>
+    <input class="validate[required,custom[email]]" type="email" placeholder="your e-mail" ng-model='contactMessage.email'><br><br>
+    <textarea class="validate[required]" placeholder="message" ng-model='contactMessage.message'></textarea>
     
     <ul class="buttons">
-      <li><a class="send" href="#" ng-click="sendContactMessage()">Send</a></li>
+      <li><a class="send" href="#" ng-click="sendContactMessage($event)">Send</a></li>
       <li><a class="close" href="#">Cancel</a></li>
     </ul>
   </form>

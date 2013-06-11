@@ -42,8 +42,8 @@
         </div>
 
         <ul class="edit-buttons">
-          <input type="button" class="button" value="save" ng-click="update(session)">
-          <input type="button" class="button" value="cancel" ng-click="switchToEditMode(false)">
+          <input type="button" class="button" value="save" ng-click="update(session, $event)">
+          <input type="button" class="button" value="cancel" ng-click="switchToEditMode(false, $event)">
         </ul>
       </form>
   </div>

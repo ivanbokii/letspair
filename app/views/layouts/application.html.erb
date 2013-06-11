@@ -6,53 +6,74 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= include_gon %>
+
+  <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" />
 </head>
 <body>
 
-<div class="wrapper">
-  <div class="header">
-    
-    <% if !@show_logo %>
-      <%= link_to root_path do %>
-        <%= image_tag 'logo.png' %>
+<div class="parent-wrapper">
+  <div class="wrapper">
+    <div class="header">
+      
+      <% if !@show_logo %>
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png' %>
+        <% end %>
       <% end %>
-    <% end %>
-    
-    <ul class="main-menu">
-      <% if logged_in? %>
-        <li><%= current_user.username %></li>
-        <li><%= link_to 'all sessions', pairsessions_path %></li>
-        <li><%= link_to 'profile', user_path(current_user.username) %></li>
-        <li><%= link_to 'sign out', session_path(current_user.username), method: :delete %></li>
-      <% else %>
-        <li><%= link_to 'all sessions', pairsessions_path %></li>
-        <li><%= link_to 'sign up', new_user_path %></li>
-        <li><%= link_to 'sign in', new_session_path %></li>
+      
+      <ul class="main-menu">
+        <% if logged_in? %>
+          <li><%= current_user.username %></li>
+          <li><%= link_to 'all sessions', pairsessions_path %></li>
+          <li><%= link_to 'profile', user_path(current_user.username) %></li>
+          <li><%= link_to 'sign out', session_path(current_user.username), method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'all sessions', pairsessions_path %></li>
+          <li><%= link_to 'sign up', new_user_path %></li>
+          <li><%= link_to 'sign in', new_session_path %></li>
+        <% end %>
+      </ul>
+      
+      <% if !@show_logo %>
+        <div class="separator"></div>
       <% end %>
-    </ul>
-    
-    <% if !@show_logo %>
-      <div class="separator"></div>
-    <% end %>
 
+    </div>
+
+    <div class="system-info">
+      <% if flash.notice or flash.alert %>
+        <div class="panel">
+          <%= flash.notice %>
+          <%= flash.alert %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <div id='contact-form' style="display:none;"></div>  
   </div>
 
-  <div class="system-info">
-    <% if flash.notice or flash.alert %>
-      <div class="panel">
-        <%= flash.notice %>
-        <%= flash.alert %>
-      </div>
-    <% end %>
+  <div class="footer">
+    <div class="content">
+      <ul class="first">
+        <li>Follow us on twitter: <a href="http://twitter.com/lets_pair">@letspair</a>  </li>
+        <li>Suggest a feature: <a href="http://letspair.userecho.com">userecho</a></li>
+        <li>Send us an email: <a href="mailto:bmo@letspair.net">bmo@letspair.net</a></li>
+      </ul>
+      
+      <ul class="second">
+        <li>created by</li>
+        <li>idea, programming: Ivan Bokii (<a href="http://twitter.com/ivanbokii">@ivanbokii</a>)</li>
+        <li>design: Iryna Sherbina</li>
+      </ul>
+      
+    </div>
   </div>
-
-  <div class="container">
-    <%= yield %>
-  </div>
-
-  <div class="footer"></div>
-  <div id='contact-form' style="display:none;"></div>
 </div>
+
 
 </body>
 </html>

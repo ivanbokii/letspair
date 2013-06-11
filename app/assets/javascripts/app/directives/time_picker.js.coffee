@@ -3,6 +3,7 @@ window.letspair.application.directive 'timepicker',
   restrict: 'A'
   scope:
     time: '='
+    resetNewSession: '='
 
   link: (scope, element) ->
     element.timepicker(timeFormat: 'G:i')

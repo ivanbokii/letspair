@@ -1,8 +1,16 @@
 @import "common";
 
+.parent-wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
 .wrapper {
+  height: 100%;
   width: 960px;
   margin: 0 auto;
+
+  padding-bottom: 200px;
 }
 
 .header {
@@ -26,4 +34,36 @@
   padding: 5px 10px 5px 10px;
   margin-bottom: 5px;
   text-align: center;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  height: 100px;
+  background-color: #252733;
+  padding-top: 10px;
+
+  .content {
+    width: 960px;
+    color: $light-grey;
+    font-size: $medium-font;
+    margin: 0 auto;
+
+    a {
+      color: $light-blue;
+    }
+
+    .first {
+      @include ul-no-style;
+
+      float: left;
+    }
+
+    .second {
+      @include ul-no-style;
+
+      float: right;
+    }
+  }
 }

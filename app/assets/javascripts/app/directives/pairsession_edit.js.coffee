@@ -10,12 +10,16 @@ window.letspair.application.directive 'pairsessionedit',
   controller: ($scope) ->
     $scope.editMode = false
 
-    $scope.switchToEditMode = (switchValue) ->
+    $scope.switchToEditMode = (switchValue, event) ->
       $scope.editMode = switchValue
       $('.edit-session-form').validationEngine('hide') if switchValue
 
+      event.preventDefault unless angular.isUndefined(event)
+
   link: (scope, element) ->
-    scope.update = (session) ->
+    scope.update = (session, event) ->
+      event.preventDefault()
+
       validationResult = $('.edit-session-form').validationEngine('validate')
       return unless validationResult
 

@@ -29,9 +29,13 @@ window.letspair.application.directive 'openscontactform',
 
         showModalWindow(template, pairsession)
 
-    $scope.sendContactMessage = () ->
+    $scope.sendContactMessage = (event) ->
       #todo not conventional for angular.js
-      
+
+      validationResult = $('form.message').validationEngine('validate')
+      return unless validationResult
+
+
       contactMessage = 
         pairsession_id: $scope.pairsession.id
         email: $scope.contactMessage.email
@@ -46,4 +50,5 @@ window.letspair.application.directive 'openscontactform',
       #to notify user about success or any errors, but I'm going to
       #remove email usage for communication and move to site messages
       $.modal.close()
+      event.preventDefault()
 

@@ -3,7 +3,7 @@
     <p class="title">new pair sessions</p>
 
     <div class="avatar">
-      <img src="{{event.user_avatar}}">
+      <img ng-src='{{event.user_avatar}}'/>
     </div>
     <div class="information">
       <p class="name"><a href="{{event.userprofile_url}}">{{event.username}}</a> <span>{{event.time_zone}}</span></p>
@@ -19,12 +19,12 @@
     <p class="title">new member</p>
 
     <div class="avatar">
-      <img src="{{event.user_avatar}}">
+      <img ng-src="{{event.user_avatar}}">
     </div>
     <div class="information">
       <p class="name"><a href="{{event.userprofile_url}}">{{event.username}}</a> <span>{{event.time_zone}}</span></p>
-      <p class="brief-information">{{event.brief_info}}</p>
-      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp {{event.skills}}</p>
+      <p class="brief-information">{{event.brief_info || 'no information'}}</p>
+      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp {{event.skills || 'no information'}}</p>
     </div>
   </div>
 </div>

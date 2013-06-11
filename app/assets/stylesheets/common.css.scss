@@ -62,7 +62,12 @@ $calendar-container-height: 260px;
 }
 
 //---common css---
+html {
+  height: 100%
+}
+
 body {
+  height: 100%;
   font-family: "Trebuchet MS";
   line-height: 18px;
 
@@ -285,6 +290,13 @@ form .button, .calendar-container .button, .edit-buttons .button {
 
 .session-edit {
   
+}
+
+.no-session {
+  width: 100px;
+  margin: 0px auto;
+  padding-top: 20px;
+  text-transform: uppercase;
 }
 
 pairsessionall, pairsessionuser, pairsessionedit, lastevent {

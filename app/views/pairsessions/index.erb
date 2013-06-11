@@ -9,6 +9,7 @@
   </div>
 
   <ul class="sessions">
+    <div class="no-session" ng-show="sessions.length == 0">no sessions</div>
     <li class="session-full" ng-repeat="session in sessions">
       <pairsessionall opensContactForm session='session'></pairsessionall>
       <div class="separator-white"></div>

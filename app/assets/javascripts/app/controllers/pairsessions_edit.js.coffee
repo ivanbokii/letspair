@@ -5,6 +5,7 @@ window.letspair.application.controller 'PairsessionsEditCtrl',
   $scope.sessions = []
 
   $scope.loadDaySessions = ->
+    $scope.switchToCreateMode(false)
     currentDate = DPCalendar.getCurrentDate()
     
     sessions = serverPairsessions.getEventsForUser($scope.userId, currentDate)
@@ -17,29 +18,46 @@ window.letspair.application.controller 'PairsessionsEditCtrl',
 
   $scope.switchToCreateMode = (switchValue) ->
     $scope.newSession = {}
+    #this is not conventional and should be refactored
+    $('.new-session-form .start-time').val('')
+    $('.new-session-form .end-time').val('')
+
     $scope.createSessionMode = switchValue
     $('.new-session-form').validationEngine('hide') if switchValue
 
-  $scope.saveNewSession = ->
+  $scope.saveNewSession = (event) ->
+    event.preventDefault()
+    
     #this is not conventional for angular.js. should be refactored to the directive
     validationResult = $('.new-session-form').validationEngine('validate')
     return unless validationResult
-
 
     $scope.newSession.date = DPCalendar.getCurrentDate()
     result = serverPairsessions.save $scope.newSession
     newSession = $scope.newSession
 
     result.then(
-      ->
+      (data) ->
         newSession.start = timeHelper.getShortTimeFromString newSession.start_time
         newSession.end = timeHelper.getShortTimeFromString newSession.end_time
+        newSession.id = data.id
 
         $scope.switchToCreateMode false
         $scope.sessions.unshift newSession
+        $scope.newSession = {}
+
+        #this is not conventional and should be refactored
+        $('.new-session-form .start-time').val('')
+        $('.new-session-form .end-time').val('')
 
         $.fn.dp_calendar.markDate(newSession.date.toDate())
       (status) ->
+        $scope.newSession = {}
+
+        #this is not conventional and should be refactored
+        $('.new-session-form .start-time').val('')
+        $('.new-session-form .end-time').val('')
+
         $log.error "pairsession was not saved #{status}"
     )
 

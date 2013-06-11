@@ -10,11 +10,11 @@ class UserPairsessionsController < ApplicationController
     params[:user_pairsession][:user_id] = current_user.id
     pairsession = Hash[params[:user_pairsession].map { |key, value| [key.underscore, value] }]
 
-    Pairsession.create(pairsession)
+    pairsession = Pairsession.create(pairsession)
     #ivanbokii check for errors after create and show error if something
     #went wrong
 
-    render status: 200, json: @controller.to_json
+    render status: 200, json: pairsession
   end
 
   def destroy

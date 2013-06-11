@@ -5,8 +5,10 @@
     </div>
     <div class="information">
       <p class="name"><%= @user.username %> <span><%= @user.time_zone %></span> <% if @show_edit %> &nbsp <%= link_to "edit", edit_user_path(current_user) %><% end %></p>
-      <p class="brief-information"><%= @user.brief_info %> </p>
-      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp <%= @user.skills %></p>
+      <p class="brief-information">
+        <%= @user.brief_info.empty? && 'no information' || @user.brief_info %>
+      </p>
+      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp <%= @user.skills.empty? && 'no information' || @user.skills %></p>
     </div>
   </div>
 </div>
@@ -22,6 +24,7 @@
   </div>
 
   <ul class="sessions">
+    <div class="no-session" ng-show="sessions.length == 0">no sessions</div>
     <li class="session-with-contact" ng-repeat="session in sessions">
       
       <pairsessionuser opensContactForm session='session'></pairsessionuser>
