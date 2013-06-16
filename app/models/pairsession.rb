@@ -7,7 +7,7 @@ class Pairsession < ActiveRecord::Base
     self.where('date = ?', date).map do |p|
       result = p.attributes
       result[:username] = p.user.username
-      result[:timezone] = 'this is the timezone'
+      result[:timezone] = p.user.timezone
 
       result
     end

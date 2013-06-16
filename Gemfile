@@ -35,6 +35,9 @@ gem 'jquery-rails'
 gem 'friendly_id'
 gem 'gon'
 
+gem 'pg'
+gem 'activerecord-postgresql-adapter'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

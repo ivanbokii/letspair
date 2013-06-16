@@ -22,6 +22,8 @@ GEM
       activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activeresource (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -113,6 +115,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    pg (0.15.1)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
     pry (0.9.12.2)
@@ -194,6 +197,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgresql-adapter
   better_errors
   binding_of_caller
   carrierwave
@@ -204,6 +208,7 @@ DEPENDENCIES
   jazz_hands
   jquery-rails
   mail_view
+  pg
   rails (= 3.2.13)
   rmagick
   sass-rails (~> 3.2.3)

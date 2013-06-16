@@ -63,6 +63,8 @@ window.letspair.application.controller 'PairsessionsEditCtrl',
     )
 
   $scope.deleteSession = (session) ->
+    unless confirm("Are you sure you want to delete the pairsession?") then return
+
     result = serverPairsessions.destroy session
     result.then(
       ->

@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
   has_many :pairsessions
 
   attr_accessor :username_or_email
-  attr_accessible :username, :email, :skills, :brief_info, :password, :password_confirmation, :image, :time_zone
+  attr_accessible :username, :email, :skills, :brief_info, :password, :password_confirmation, :image, :timezone
 
-  validates_presence_of :username, :email, :time_zone
+  validates_presence_of :username, :email, :timezone
   validates_uniqueness_of :username, :email
 
   validates :email, email: true

@@ -7,7 +7,7 @@ class PairsessionsController < ApplicationController
     result = pairsession.attributes
     result[:user_avatar] = pairsession.user.image_url
     result[:username] = pairsession.user.username
-    result[:time_zone] = pairsession.user.time_zone
+    result[:time_zone] = pairsession.user.timezone
 
     render json: result.to_json
   end
