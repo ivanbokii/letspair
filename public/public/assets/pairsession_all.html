@@ -1,0 +1,12 @@
+<div class="avatar">
+  <image ng-src="{{session.user_avatar}}"></image>
+</div>
+<div class="information">
+  <p class="name"><a href="{{session.userprofile_url}}">{{session.username}}</a><span>&nbsp {{session.timezone}}</span></p>
+  <p class="brief-information">{{session.note}}</p>
+  <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp {{session.technologies}}</p>
+  <p class="when"><span class="icon-clock"></span> {{session.start}} - {{session.end}}</p>
+</div>
+<div class="button">
+  <a href="#" class="contact" ng-click='contact($event)'><img ng-src="{{contactButton}}"></a>
+</div>

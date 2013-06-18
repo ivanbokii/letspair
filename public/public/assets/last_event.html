@@ -1,0 +1,30 @@
+<div ng-switch on="isUser">
+  <div ng-switch-when="false">
+    <p class="title">new pair sessions</p>
+
+    <div class="avatar">
+      <img ng-src='{{event.user_avatar}}'/>
+    </div>
+    <div class="information">
+      <p class="name"><a href="{{event.userprofile_url}}">{{event.username}}</a> <span>{{event.timezone}}</span></p>
+      <p class="brief-information">{{event.note}}</p>
+      <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp {{event.technologies}}</p>
+      <p class="when"><span class="icon-clock"></span> &nbsp {{event.date}} {{event.start}} - {{event.end}}</p>
+    </div>
+    <div class="button">
+      <a href="#" class="contact" ng-click="contact($event)"><img ng-src="{{contactButton}}"></a>
+    </div>
+  </div>
+  <div ng-switch-when="true">
+    <p class="title">new member</p>
+
+    <div class="avatar">
+      <img ng-src="{{event.user_avatar}}">
+    </div>
+    <div class="information">
+      <p class="name"><a href="{{event.userprofile_url}}">{{event.username}}</a> <span>{{event.timezone}}</span></p>
+      <p class="brief-information">{{event.brief_info || 'no information'}}</p>
+      <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp {{event.skills || 'no information'}}</p>
+    </div>
+  </div>
+</div>

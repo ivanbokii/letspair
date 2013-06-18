@@ -10,6 +10,9 @@ window.letspair.application.directive 'lastevent',
   link: (scope, element, attrs, opensContactFormController) ->
     scope.isUser = angular.isUndefined(scope.event.user_id)
 
+    #this is dumb, but it seems there is no way to use store erb templates in the assets/templates
+    scope.contactButton = gon.contactButtonAssetURL
+
     unless scope.isUser
       startTime = timeHelper.getDate(new Date(scope.event.start_time).getTime())
       endTime = timeHelper.getDate (new Date(scope.event.end_time).getTime())

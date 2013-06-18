@@ -12,7 +12,7 @@
       <p class="when"><span class="icon-clock"></span> &nbsp {{event.date}} {{event.start}} - {{event.end}}</p>
     </div>
     <div class="button">
-      <a href="#" class="contact" ng-click="contact($event)"><%= image_tag "button_contact.png" %></a>
+      <a href="#" class="contact" ng-click="contact($event)"><img ng-src="{{contactButton}}"></a>
     </div>
   </div>
   <div ng-switch-when="true">

@@ -1,2 +1,2 @@
-window.letspair = {};
-window.letspair.application = angular.module('letspair', []);
+window.letspair = {}
+window.letspair.application = angular.module('letspair', [])

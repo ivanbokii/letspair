@@ -1,5 +1,5 @@
 window.letspair.application.directive 'pairsessionuser', 
-['timeHelper'
+['timeHelper',
 (timeHelper) ->
   restrict: "E"
   require: 'openscontactform'
@@ -8,6 +8,7 @@ window.letspair.application.directive 'pairsessionuser',
 
   templateUrl: gon.pairsessionUserTemplateURL
   link: (scope, element, attrs, opensContactFormController) ->
+    scope.contactButton = gon.contactButtonAssetURL
 
     scope.contact = (event) ->
       opensContactFormController.open(scope.session.id)

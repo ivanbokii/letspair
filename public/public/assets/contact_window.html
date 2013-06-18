@@ -1,0 +1,32 @@
+<div class="header">
+  <a href="#" class="close"><img ng-src="{{closeButton}}"></a>
+  <h3>pair session message</h3>
+</div>
+<div class="body">
+  <div class="session-full">
+    <div class="avatar">
+      <img ng-src="{{pairsession.user_avatar}}" alt="">
+    </div>
+    <div class="information">
+      <p class="name"> {{pairsession.username}} <span>{{pairsession.timezone}}</span></p>
+      <p class="brief-information">{{pairsession.note}}</p>
+      <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp {{pairsession.technologies}}</p>
+      <p class="when"><span class="icon-clock"></span> &nbsp {{pairsession.date}} {{pairsession.start}} - {{pairsession.end}}</p>
+    </div>
+  </div>
+
+  <div class="note">
+    if you want to join user in the pair programming session please use this form to contact him/her
+  </div>
+
+  <form class="message">
+    <input class="validate[required,custom[email]]" type="email" placeholder="your e-mail" ng-model='contactMessage.email'><br><br>
+    <textarea class="validate[required]" placeholder="message" ng-model='contactMessage.message'></textarea>
+    
+    <ul class="buttons">
+      <li><a class="send" href="#" ng-click="sendContactMessage($event)">Send</a></li>
+      <li><a class="close" href="#">Cancel</a></li>
+    </ul>
+  </form>
+
+</div>

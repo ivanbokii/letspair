@@ -1,5 +1,5 @@
 window.letspair.application.controller 'WelcomeCtrl',
-['$scope'
+['$scope',
 ($scope) ->
   $scope.events = gon.events
 ]

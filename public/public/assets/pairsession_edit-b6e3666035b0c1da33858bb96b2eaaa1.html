@@ -1,0 +1,50 @@
+<div ng-switch on="editMode">
+  <div ng-switch-default>
+    <div class="information">
+      <p class="brief-information">{{session.note}}</p>
+      <p class="bottom-info-label"><span class="highlighted-text">technologies: </span>&nbsp {{session.technologies}}</p>
+      <p class="when"><span class="icon-clock"></span> {{session.start}} - {{session.end}}</p>
+    </div>
+    <ul class="edit-buttons">
+      <input type="button" class="button" value='edit' ng-click="switchToEditMode(true)">
+      <input type="button" class="button" value='delete' ng-click="deletesession(session)">
+    </ul>
+  </div>
+
+  <div ng-switch-when="true">
+    <form class="edit-session-form">
+        <div class='field'>
+          <label>note:</label>
+          <div class='control'>
+            <textarea class='note validate[required]' data-prompt-position='bottomRight: -100,3' rows='4' cols='80' ng-model='session.note'></textarea>
+          </div>
+        </div>
+
+        <div class='field'>
+          <label>technologies:</label>
+          <div class='control'>
+            <input class='technologies validate[required]' type='text' value='' ng-model='session.technologies'></input>
+          </div>
+        </div>
+
+        <div class='field'>
+          <label>start time:</label>
+          <div class='control'>
+            <input class='start-time validate[required]' timepicker time='session.start' type='text' value=''></input>
+          </div>
+        </div>
+
+        <div class='field'>
+          <label>end time:</label>
+          <div class='control'>
+            <input class='end-time validate[required]' timepicker time='session.end' type='text' value=''></input>
+          </div>
+        </div>
+
+        <ul class="edit-buttons">
+          <input type="button" class="button" value="save" ng-click="update(session, $event)">
+          <input type="button" class="button" value="cancel" ng-click="switchToEditMode(false, $event)">
+        </ul>
+      </form>
+  </div>
+</div>

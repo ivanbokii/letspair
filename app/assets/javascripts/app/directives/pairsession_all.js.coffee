@@ -8,6 +8,7 @@ window.letspair.application.directive 'pairsessionall',
 
   templateUrl: gon.pairsessionContactTemplateURL
   link: (scope, element, attrs, opensContactFormController) ->
+    scope.contactButton = gon.contactButtonAssetURL
 
     scope.contact = (event) ->
       opensContactFormController.open(scope.session.id)

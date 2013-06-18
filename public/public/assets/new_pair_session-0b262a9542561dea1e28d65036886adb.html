@@ -1,0 +1,34 @@
+<form class='new-session-form'>
+    <div class='field'>
+      <label>note:</label>
+      <div class='control'>
+        <textarea class='note validate[required]' rows='4' cols='80' ng-model='newSession.note'></textarea>
+      </div>
+    </div>
+
+    <div class='field'>
+      <label>technologies:</label>
+      <div class='control'>
+        <input class='technologies validate[required]' type='text' value='' ng-model='newSession.technologies'></input>
+      </div>
+    </div>
+
+    <div class='field'>
+      <label>start time:</label>
+      <div class='control'>
+        <input class='start-time validate[required]' timepicker time='newSession.start_time' type='text' value=''></input>
+      </div>
+    </div>
+
+    <div class='field'>
+      <label>end time:</label>
+      <div class='control'>
+        <input class='end-time validate[required]' timepicker time='newSession.end_time' type='text' value=''></input>
+      </div>
+    </div>
+
+    <ul class="edit-buttons">
+      <input type="button" class="button" value='save' ng-click="saveNewSession($event)">
+      <input type="button" class="button" value='cancel' ng-click="switchToCreateMode(false)">
+    </ul>
+  </form>

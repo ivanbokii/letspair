@@ -1,4 +1,6 @@
-window.letspair.application.factory 'serverPairsessions', ['$http', '$q', ($http, $q) ->
+window.letspair.application.factory 'serverPairsessions', 
+['$http', '$q', 
+($http, $q) ->
   save = (session) ->
     deferred = $q.defer()
 
@@ -149,7 +151,7 @@ window.letspair.application.factory 'serverPairsessions', ['$http', '$q', ($http
     return deferred.promise
 
 
-  {
+  return {
     save: save
     destroy: destroy
     getFor: getFor

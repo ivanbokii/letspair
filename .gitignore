@@ -17,4 +17,5 @@
 .DS_Store
 /config/database.yml
 /public/uploads/*
+/config/deploy.rb
 setup_mail.rb

@@ -4,12 +4,13 @@ class ApplicationController < ActionController::Base
   before_filter :set_gon
 
   def set_gon
-    gon.pairsessionTemplateURL = ActionController::Base.helpers.asset_path('pairsession_edit.erb')
-    gon.pairsessionContactTemplateURL = ActionController::Base.helpers.asset_path('pairsession_all.erb')
-    gon.pairsessionUserTemplateURL = ActionController::Base.helpers.asset_path('pairsession_user.erb')
-    gon.contactButtonAssetURL = ActionController::Base.helpers.asset_path('button_contact.png')
-    gon.contactWindowTemplateURL = ActionController::Base.helpers.asset_path('contact_window.erb')
-    gon.lasteventUrl = ActionController::Base.helpers.asset_path('last_event.erb')
+    gon.pairsessionTemplateURL = view_context.asset_path('pairsession_edit.html')
+    gon.pairsessionContactTemplateURL = view_context.asset_path('pairsession_all.html')
+    gon.pairsessionUserTemplateURL = view_context.asset_path('pairsession_user.html')
+    gon.contactButtonAssetURL = view_context.asset_path('button_contact.png')
+    gon.closeButtonAssetURL = view_context.asset_path('close_button.png')
+    gon.contactWindowTemplateURL = view_context.asset_path('contact_window.html')
+    gon.lasteventUrl = view_context.asset_path('last_event.html')
     
     gon.getSessionByID = url_for(controller: 'pairsessions', action: 'show', id: '')
     gon.pairsession_contact = url_for(controller: 'pairsessions', action: 'contact', pairsession_id: '_pairsession_id_')

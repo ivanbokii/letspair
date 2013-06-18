@@ -8,7 +8,7 @@ window.letspair.application.directive 'pairsessionedit',
     savechanges: '&'
 
   templateUrl: gon.pairsessionTemplateURL
-  controller: ($scope) ->
+  controller: ['$scope', ($scope) ->
     $scope.editMode = false
 
     $scope.switchToEditMode = (switchValue, event) ->
@@ -16,7 +16,8 @@ window.letspair.application.directive 'pairsessionedit',
       $('.edit-session-form').validationEngine('hide') if switchValue
 
       event.preventDefault unless angular.isUndefined(event)
-
+  ]
+  
   link: (scope, element) ->
     scope.update = (session, event) ->
       event.preventDefault()

@@ -3,8 +3,9 @@ window.letspair.application.directive 'openscontactform',
 ($http, $compile, serverTemplates, serverPairsessions, $q, modalWindow, timeHelper) ->
   restrict: 'A'
 
-  controller: ($scope) ->
+  controller: ['$scope', ($scope) ->
     $scope.contactMessage = {}
+    $scope.closeButton = gon.closeButtonAssetURL
 
     showModalWindow = (template, pairsession) ->
       $scope.pairsession = pairsession
@@ -13,7 +14,7 @@ window.letspair.application.directive 'openscontactform',
       modalWindow.open()
 
     this.open = (sessionId) ->
-      #this is not optimal. Need to precompile templates
+      # this is not optimal. Need to precompile templates
       $q.all([
         serverTemplates.getContactTemplate(),
         serverPairsessions.getById(sessionId)
@@ -52,4 +53,5 @@ window.letspair.application.directive 'openscontactform',
       #remove email usage for communication and move to site messages
       $.modal.close()
       event.preventDefault()
+    ]
 ]

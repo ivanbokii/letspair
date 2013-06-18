@@ -1,4 +1,6 @@
-window.letspair.application.factory 'serverTemplates', ['$http', '$q', ($http, $q) ->
+window.letspair.application.factory 'serverTemplates', 
+['$http', '$q', 
+($http, $q) ->
   getContactTemplate = ->
     deferred = $q.defer()
 
