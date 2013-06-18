@@ -28,6 +28,19 @@
       color: #7a7a7a;
     }
   }
+
+  .github-banner {
+    font-size: $small-font;
+    float: left;
+    margin: 10px 0 0 12px;
+
+    a {
+      color: black;
+      text-decoration: none;
+      background: image-url('octocat.png') no-repeat left;
+      padding: 10px 0 10px 30px;
+    }
+  }
 }
 
 .latest-events {
