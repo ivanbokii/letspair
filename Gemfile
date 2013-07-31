@@ -29,16 +29,16 @@ group :development do
 end
 
 group :test, :development do
-  gem "rspec-rails"
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "database_cleaner"
-  gem "simplecov"
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'simplecov'
 end
 
 group :test do
-  gem "faker"
-  gem "launchy"
+  gem 'faker'
+  gem 'launchy'
 end
 
 gem 'mail_view'
