@@ -18,6 +18,6 @@ class Pairsession < ActiveRecord::Base
   end
 
   def self.get_last(number_of_sessions)
-    self.order('created_at DESC').limit(5)
+    self.order('created_at DESC').limit(number_of_sessions)
   end
 end

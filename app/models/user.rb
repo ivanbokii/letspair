@@ -24,6 +24,6 @@ class User < ActiveRecord::Base
   mount_uploader :image, AvatarUploader
 
   def self.get_last(number_of_users)
-    self.order('created_at DESC').limit(5)
+    self.order('created_at DESC').limit(number_of_users)
   end
 end
