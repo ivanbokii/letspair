@@ -19,3 +19,4 @@
 /public/uploads/*
 /config/deploy.rb
 setup_mail.rb
+/coverage
