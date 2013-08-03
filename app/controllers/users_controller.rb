@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # @users = User.all
+  end
+
+  def get_users
+    results = User.all
+    render json: results.to_json
   end
 
   def show
@@ -22,7 +27,7 @@ class UsersController < ApplicationController
       flash.notice = user.errors.messages
       redirect_to :root
     end
-    
+
   end
 
   def edit

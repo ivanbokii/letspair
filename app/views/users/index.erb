@@ -1,0 +1,13 @@
+<p class="page-title">Users</p>
+
+<div class="users" ng-app="letspair" ng-controller="UsersAllCtrl">
+
+  <ul class="users">
+    <div class="no-users" ng-show="users.length == 0">no users</div>
+    <li class="users-full" ng-repeat="user in users">
+      <pairsessionall opensContactForm session='user'></pairsessionall>
+<!--       <usersall opensContactForm user='user'></usersall>
+ -->
+       <div class="separator-white"></div>
+    </li>
+</div>
