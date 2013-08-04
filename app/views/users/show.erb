@@ -6,7 +6,7 @@
     <div class="information">
       <p class="name"><%= @user.username %> <span><%= @user.timezone %></span> <% if @show_edit %> &nbsp <%= link_to "edit", edit_user_path(current_user) %><% end %></p>
       <p class="brief-information">
-        <%= @user.brief_info.empty? && 'no information' || @user.brief_info %>
+        <%= @user.brief_info.blank? && 'no information' || @user.brief_info %>
       </p>
       <p class="bottom-info-label"><span class="highlighted-text">skills: </span>&nbsp <%= @user.skills.empty? && 'no information' || @user.skills %></p>
     </div>
