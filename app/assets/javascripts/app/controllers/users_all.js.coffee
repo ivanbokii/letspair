@@ -13,4 +13,16 @@ window.letspair.application.controller 'UsersAllCtrl',
         $log.error "can not load users for #{currentSort} #{status}"
     )
   $scope.loadUsers()
+
+  $scope.currentPage = 0
+  $scope.pageSize = 10
+  $scope.data = []
+  
+  $scope.numPages = ->
+    Math.ceil $scope.users.length / $scope.pageSize
 ]
+
+window.letspair.application.filter "startFrom", ->
+  (input, start) ->
+    start = +start
+    input.slice start

@@ -4,10 +4,18 @@
 
   <ul class="users">
     <div class="no-users" ng-show="users.length == 0">no users</div>
-    <li class="users-full" ng-repeat="user in users">
+    <li class="users-full" ng-repeat="user in users | startFrom:currentPage*pageSize | limitTo:pageSize">
       <pairsessionall opensContactForm session='user'></pairsessionall>
 <!--       <usersall opensContactForm user='user'></usersall>
  -->
-       <div class="separator-white"></div>
+      <div class="separator-white"></div>
     </li>
+  </ul>
+  <button class="button" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+    Previous
+  </button>
+  {{currentPage+1}}/{{numPages()}}
+  <button class="button" ng-disabled="currentPage >= numPages()-1" ng-click="currentPage=currentPage+1">
+    Next
+  </button>
 </div>
