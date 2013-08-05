@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   def set_gon
     gon.pairsessionTemplateURL = view_context.asset_path('pairsession_edit.html')
     gon.pairsessionContactTemplateURL = view_context.asset_path('pairsession_all.html')
+    gon.userPartialTemplateURL = view_context.asset_path('user_partial.html')
     gon.pairsessionUserTemplateURL = view_context.asset_path('pairsession_user.html')
     gon.contactButtonAssetURL = view_context.asset_path('button_contact.png')
     gon.closeButtonAssetURL = view_context.asset_path('close_button.png')

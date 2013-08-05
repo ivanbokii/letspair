@@ -5,7 +5,7 @@
   <ul class="users">
     <div class="no-users" ng-show="users.length == 0">no users</div>
     <li class="session-full" ng-repeat="user in users | startFrom:currentPage*pageSize | limitTo:pageSize">
-      <pairsessionall opensContactForm session='user'></pairsessionall>
+      <userpartial opensContactForm user='user'></userpartial>
 <!--       <usersall opensContactForm user='user'></usersall>
  -->
       <div class="separator-white"></div>
