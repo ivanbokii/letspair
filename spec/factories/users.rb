@@ -1,5 +1,11 @@
 require 'faker'
 
+def fake_timezone
+  arr = ['Europe/Copenhagen', 'London', 'East Coast', 'Pacific', 'UTF/GMT +2',
+         '-7']
+  arr[rand(arr.length)]
+end
+
 FactoryGirl.define do
   factory :user do
     username                { Faker::Name.name }
@@ -9,6 +15,6 @@ FactoryGirl.define do
     password                'password'
     password_confirmation   'password'
     image                   nil
-    timezone                '2013-07-31 16:00:00 +0200'
+    timezone                { fake_timezone }
   end
 end
