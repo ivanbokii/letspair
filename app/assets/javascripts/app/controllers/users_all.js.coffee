@@ -21,8 +21,3 @@ window.letspair.application.controller 'UsersAllCtrl',
   $scope.numPages = ->
     Math.ceil $scope.users.length / $scope.pageSize
 ]
-
-window.letspair.application.filter "startFrom", ->
-  (input, start) ->
-    start = +start
-    input.slice start
