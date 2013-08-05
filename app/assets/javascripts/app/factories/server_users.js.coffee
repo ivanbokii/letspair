@@ -3,7 +3,6 @@ window.letspair.application.factory 'serverUsers',
 
   getFor = (currentSort) ->
     deferred = $q.defer()
-    # urlDate = date.format('YYYY-MM-DD')
 
     $http(
       method: 'GET'
