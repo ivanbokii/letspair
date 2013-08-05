@@ -7,7 +7,6 @@ describe UsersController do
 
     get :get_users
     expect(response.body).to eq(User.all.to_json)
-    # expect(response.body).to match_array [user]
   end
 
   it "renders the :index view" do
