@@ -3,7 +3,7 @@ require 'faker'
 FactoryGirl.define do
   factory :user do
     username                Faker::Name.name
-    email                   'joe@example.com'
+    email                   Faker::Internet.email
     skills                  'Rails, Ruby'
     brief_info              nil
     password                'password'
