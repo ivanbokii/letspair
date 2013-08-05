@@ -1,6 +1,6 @@
 window.letspair.application.controller 'UsersAllCtrl',
-['$scope', 'DPCalendar', 'serverUsers', '$log',
-($scope, DPCalendar, serverUsers, $log) ->
+['$scope', 'serverUsers', '$log',
+($scope, serverUsers, $log) ->
   $scope.users = []
 
   $scope.loadUsers = ->
