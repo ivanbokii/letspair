@@ -1,8 +1,0 @@
-* Ask spkenny what he thinks
-* Uprade to Rails 4
-* make factories for paringsessions
-* Sign_in helper to test logged in user
-* Improve new feature viewing all users
-* Write some javascript tests with Angularjs Karma
-* Can/should karma also be used for full coverage or should we use 
-plain old rspec+capybara integration specs?
