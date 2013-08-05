@@ -1,4 +1,4 @@
-require'spec_helper' 
+require 'spec_helper'
 
 describe UsersController do
   it "get_users renders json with users" do
