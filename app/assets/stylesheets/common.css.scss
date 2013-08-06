@@ -304,3 +304,17 @@ pairsessionall, pairsessionuser, pairsessionedit, lastevent {
   overflow: hidden;
   margin-bottom: 20px;
 }
+
+.user-full {
+  @extend .session-with-avatar;
+  @extend .session-with-contact;
+
+  overflow: hidden;
+
+  .information {
+    .title {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}
