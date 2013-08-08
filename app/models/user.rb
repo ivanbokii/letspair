@@ -24,6 +24,18 @@ class User < ActiveRecord::Base
   mount_uploader :image, AvatarUploader
 
   def self.get_last(number_of_users)
-    self.order('created_at DESC').limit(5)
+    self.order('created_at DESC').limit(number_of_users)
+  end
+
+  def as_json(options={})
+    super(only: [:username, :timezone, :skills, :brief_info]).merge!(
+      user_avatar:      image_url,
+      brief_info:       (default_brief_info if brief_info.blank?),
+      userprofile_url:  Rails.application.routes.url_helpers.user_path(self)
+    )
+  end
+
+  def default_brief_info
+    'no information'
   end
 end

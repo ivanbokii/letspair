@@ -1,0 +1,11 @@
+TODO
+
+- paringsession factory
+* view all users
+
+IDEAS
+
+- Uprade to Rails 4
+- Make a full coverage test with Rspec, Capybara, sign_in_helper
+- Perhaps test new javascript with Jasmine
+- Standardize timezones
