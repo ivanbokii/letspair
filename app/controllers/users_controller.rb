@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index; end
 
   def get_users
-    results = User.all
+    results = User.order('created_at DESC')
     render json: results.to_json
   end
 

@@ -191,7 +191,7 @@ form .button, .calendar-container .button, .edit-buttons .button {
   color: white;
 }
 
-.edit-buttons .button {
+.edit-buttons .button, .paging-buttons .button {
   background-image: image-url('button_tiny.png');
   width: 45px;
   height: 20px;
@@ -202,6 +202,22 @@ form .button, .calendar-container .button, .edit-buttons .button {
   color: white;
 }
 
+.navigation-button {
+  background-color: #1992c5;
+  color: #eeeeee;
+  border: none;
+  width: 91px;
+  height: 32px;
+  font-size: $small-font;
+}
+
+.navigation-button:hover {
+  background-color: #1ba1d5;
+}
+
+.navigation-button:disabled {
+  background-color: lightgrey;
+}
 //---sessions styles----
 .session {
   overflow: hidden;

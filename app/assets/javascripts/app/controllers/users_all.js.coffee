@@ -12,6 +12,7 @@ window.letspair.application.controller 'UsersAllCtrl',
       (status) ->
         $log.error "can not load users for #{currentSort} #{status}"
     )
+
   $scope.loadUsers()
 
   $scope.currentPage = 0

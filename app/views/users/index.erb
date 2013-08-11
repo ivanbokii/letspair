@@ -1,19 +1,31 @@
 <p class="page-title">Users</p>
 
 <div class="users" ng-app="letspair" ng-controller="UsersAllCtrl">
-
+  <div class="navigation-buttons">
+    <a href="#" ></a>
+    <button class="navigation-button" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+      &lt; Previous
+    </button>
+    <span>{{currentPage+1}}/{{numPages()}}</span>
+    <button class="navigation-button" ng-disabled="currentPage >= numPages()-1" ng-click="currentPage=currentPage+1">
+      Next &gt;
+    </button>
+  </div>
   <ul class="users">
     <div class="no-users" ng-show="users.length == 0">no users</div>
     <li class="user-full" ng-repeat="user in users | startFrom:currentPage*pageSize | limitTo:pageSize">
       <userpartial opensContactForm user='user'></userpartial>
-      <div class="separator-white"></div>
+      <div ng-class="{true: 'separator-white', false: 'separator'}[$index >= 2]"></div>
     </li>
   </ul>
-  <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-    Previous
-  </button>
-  {{currentPage+1}}/{{numPages()}}
-  <button ng-disabled="currentPage >= numPages()-1" ng-click="currentPage=currentPage+1">
-    Next
-  </button>
+  <div class="navigation-buttons">
+    <a href="#" ></a>
+    <button class="navigation-button" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+      &lt; Previous
+    </button>
+    <span>{{currentPage+1}}/{{numPages()}}</span>
+    <button class="navigation-button" ng-disabled="currentPage >= numPages()-1" ng-click="currentPage=currentPage+1">
+      Next &gt;
+    </button>
+  </div>
 </div>

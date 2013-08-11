@@ -1,0 +1,7 @@
+* Ask spkenny what he thinks
+* Uprade to Rails 4
+* Install Factorygirl
+* make factories for users and paringsessions
+* Install simplecov
+* Sign_in helper to test logged in user
+* Complete feature view_users

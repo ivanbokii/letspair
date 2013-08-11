@@ -1,0 +1,16 @@
+@import "common";
+
+.navigation-buttons {
+  padding-top: 20px;
+  width: 300px;
+  float: right;
+
+  span {
+    font-size: $small-font;
+    color: #252733;
+  }
+}
+
+.users {
+  clear: both;
+}
